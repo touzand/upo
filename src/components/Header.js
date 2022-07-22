@@ -16,7 +16,8 @@ const [inputVisible,setInputVisible] = useState(false)
   return (
     <HeaderContainer>
       <p>UPO</p>
-      {!inputVisible ? <input type="search" placeholder="Search..." onClick={()=>setInputVisible(true)}/> : <SearchImput/>}
+<button onClick={()=>setInputVisible(true)}>Quick search</button>
+      {inputVisible && <SearchImput inputVisible={inputVisible} setInputVisible={setInputVisible}/>}
     </HeaderContainer>
   );
 };
