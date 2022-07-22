@@ -1,8 +1,12 @@
+import Router from '../src/components/Router'
+import Footer from '../src/components/Footer'
+
 function App() {
   return (
-    <div>
-    <p>Hello world!</p>
-    </div>
+    <>
+    <Router/> 
+    <Footer/>
+    </>
   );
 }
 
