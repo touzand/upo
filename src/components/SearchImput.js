@@ -41,7 +41,7 @@ const SearchInput = props => (
     <div>
       <div>
         <i className="bi bi-search"></i>
-        <input type="text" placeholder="Search..." />
+        <input type="text" placeholder="Search..." autoFocus/>
       </div>
       <button onClick={()=>props.setInputVisible(false)}>Cancel</button>
     </div>
