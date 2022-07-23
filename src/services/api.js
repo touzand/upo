@@ -5,4 +5,6 @@ export const api = {
   TRENDING:`${API_ENDPOINT}/trending/all/day?api_key=${API_KEY}`,
   MOVIE_POPULAR_LIST: `${API_ENDPOINT}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
   TV_POPULAR_LIST:`${API_ENDPOINT}/tv/popular?api_key=${API_KEY}&language=en-US&page=1`,
+  BACKDROP_PATH:`https://image.tmdb.org/t/p/w500`,
+  POSTER:`https://image.tmdb.org/t/p/w500`,
 }

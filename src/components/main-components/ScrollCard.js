@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Percent from '../Percent'
 import {formatAsPercent} from "../../utilities/util"
+import {Link} from 'react-router-dom'
 
 const Card = styled.div`
   height: auto;
@@ -17,8 +18,10 @@ const Card = styled.div`
 `;
 
 const SlideCard = ({ props }) => (
-  <Card>
-    <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} />
+      <Link to={`/${(props.media_type) ? "movie" : "tv"}/${props.id}`}>
+    <Card>
+      <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} />
   </Card>
+      </Link>
 );
 export default SlideCard;
