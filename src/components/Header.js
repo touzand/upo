@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import styled from "styled-components";
-import SearchImput from '../components/SearchImput';
+import SearchBar from '../components/SearchBar';
 
 const HeaderContainer = styled.header`
   text-align: center;
@@ -17,7 +17,7 @@ const [inputVisible,setInputVisible] = useState(false)
     <HeaderContainer>
       <p>UPO</p>
 <button onClick={()=>setInputVisible(true)}>Quick search</button>
-      {inputVisible && <SearchImput inputVisible={inputVisible} setInputVisible={setInputVisible}/>}
+      {inputVisible && <SearchBar inputVisible={inputVisible} setInputVisible={setInputVisible}/>}
     </HeaderContainer>
   );
 };
