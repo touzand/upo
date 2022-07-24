@@ -1,48 +1,48 @@
-import {useParams} from 'react-router'
+import { useParams } from "react-router";
 import { API_KEY, api } from "../services/api";
 import Loader from "../components/Loader";
 import useAxios from "../hooks/useAxios";
-import styled from "styled-components";
+import Percent from "../components/Percent";
+import Container from "../components/details-components/DetailContainer";
+import Header from "../components/details-components/HeaderContainer";
+import Body from "../components/details-components/BodyContainer";
 
-const TvDetails = props =>{
-const {id} = useParams()
+const TvDetails = () => {
+  const { id } = useParams();
   const [response, isError, isLoading] = useAxios({
     url: `/tv/${id}?api_key=${API_KEY}&language=en-US`,
   });
 
-  const DetailContainer = styled.div``;
+  let tv = response.data;
 
-  const HeaderContainer = styled.div`
-    width: 100%;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: norepeat;
-
-    img {
-      width: 100%;
-      height: auto;
-    }
-  `;
-
-
-
-  return(
+  return (
     <div>
       {isLoading ? (
         <Loader />
       ) : (
-        <DetailContainer>
-          <HeaderContainer
-            style={{
-              backgroundImage: `linear-gradient(transparent,black),url(${api.BACKDROP_PATH}${response.data.backdrop_path})`,
-            }}
-          >
-            <img src={`${api.POSTER}${response.data.poster_path}`} />
-          </HeaderContainer>
-        </DetailContainer>
+        <Container>
+          <Header backDrop={tv.backdrop_path} api={api.BACKDROP_PATH}>
+            <img src={`${api.POSTER}${tv.poster_path}`} />
+            <div>
+              <h2>{tv.name}</h2>
+              <span>{tv.first_air_date}</span>
+              <Percent>{tv.vote_average}</Percent>
+            </div>
+          </Header>
+          <Body backDrop={tv.backdrop_path} api={api.BACKDROP_PATH}> <article>
+              {tv.genres.map((genre, index) => (
+                <span key={genre.id}>{genre.name}</span>
+              ))}
+            </article>
+            {tv.tagline && <p className="tagname">" {tv.tagline}"</p>}
+            <h2>Overview</h2>
+            <p className="overview">
+              {tv.overview}
+            </p>
+          </Body>
+        </Container>
       )}
     </div>
-  )
-
-}
-export default TvDetails
+  );
+};
+export default TvDetails;

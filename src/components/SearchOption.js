@@ -13,9 +13,6 @@ width:100%;
 &:hover{
 background-color:whitesmoke;
 }
-
-a{
-}
 `
 
 const SearchOption = ( {props} ) =>(

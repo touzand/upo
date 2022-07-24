@@ -1,12 +1,15 @@
 import styled from 'styled-components'
+import {formatAsPercent} from '../utilities/util'
 
 const PercentContainer = styled.span`
-background-color:red;
+color:black !important;
+padding:.25rem;
+background-color:#f3ce13;
 `
 
 const Percent = ({children}) =>(
   <PercentContainer>
-    {children}
+    {formatAsPercent(children)}
   </PercentContainer>
 )
 export default Percent
