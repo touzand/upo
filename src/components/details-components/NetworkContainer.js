@@ -6,6 +6,7 @@ display:flex;
 padding:0 !important;
 border-radius:.5rem;
 overflow:hidden;
+margin-bottom:1rem;
 
 img{
 width:70px;

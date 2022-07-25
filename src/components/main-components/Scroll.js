@@ -21,7 +21,7 @@ const Scroll = (props) => {
     {props.children}
     <ScrollContainer>
       {isLoading ? <Loader /> : 
-          response.data.results.map(( props,index  )=><ScrollCard props={props} key={props.id}/>)
+          response.data.results.map(( propis,index  )=><ScrollCard mediaType={props.mediaType} props={propis} key={propis.id}/>)
       }
     </ScrollContainer>
     </>

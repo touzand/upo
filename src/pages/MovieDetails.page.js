@@ -55,6 +55,28 @@ const MovieDetails = () => {
                 <a href={`${movie.homepage}`}>here</a>
               </p>
             )}{" "}
+              {isLoadingProviders ? <Loader/> : (
+              <div>
+                {Object.keys(responseProviders.data.results).map(
+                  (key, index) => {
+                    if (key === "US") {
+                      let network =
+                        Object.values(responseProviders.data.results)[index].flatrate[0] ||
+                        Object.values(responseProviders.data.results)[index].free[0]
+
+                      return (
+                        <Network
+                          logo={network.logo_path}
+                          name={network.provider_name}
+                        api={api.POSTER}
+                        key={network.id}
+                        />
+                      );
+                    }
+                  }
+                )}
+              </div>
+            )}
           </Body>
             <h2 style={{marginLeft:"1rem"}}>Main cast</h2>
             { ! isLoadingCredits &&

@@ -9,8 +9,8 @@ const HomeContainer = styled.div`
 const Home = () =>(
   <HomeContainer>
     <Header endPoint={api.MOVIE_POPULAR_LIST}/>
-    <Scroll endPoint={api.TRENDING}><h2>Trending</h2></Scroll>
-    <Scroll endPoint={api.TV_POPULAR_LIST}><h2>Series and TV shows</h2></Scroll>
+    <Scroll endPoint={api.TRENDING} mediaType="movie"><h2>Trending</h2></Scroll>
+    <Scroll endPoint={api.TV_POPULAR_LIST} mediaType="tv"><h2>Series and TV shows</h2></Scroll>
   </HomeContainer> 
 )
 export default Home;

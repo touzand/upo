@@ -1,0 +1,111 @@
+import { useParams } from "react-router";
+import useAxios from "../hooks/useAxios";
+import { API_KEY, api } from "../services/api";
+import Loader from "../components/Loader";
+import Percent from "../components/Percent";
+import Container from "../components/details-components/DetailContainer";
+import Header from "../components/details-components/HeaderContainer";
+import Body from "../components/details-components/BodyContainer";
+import Card from "../components/details-components/CreditsCard";
+import Scroll from "../components/details-components/ScrollContainer";
+import Network from "../components/details-components/NetworkContainer";
+
+const Details = (props) => {
+  const { id } = useParams();
+  const [response, isError, isLoading] = useAxios({
+    url: `/${props.mediaType}/${id}?api_key=${API_KEY}&language=en-US`,
+  });
+
+  const [responseProviders, isErrorProviders, isLoadingProviders] = useAxios({
+    url: `/${props.mediaType}/${id}/watch/providers?api_key=${API_KEY}&language=en-US`,
+  });
+
+  const [credits, isErrorCredits, isLoadingCredits] = useAxios({
+    url: `/${props.mediaType}/${id}/credits?api_key=${API_KEY}&language=en-US`,
+  });
+
+  let media = response.data;
+  let providers;
+
+  return (
+    <div>
+      {isLoading ? (
+        <Loader />
+      ) : (
+        <Container>
+          <Header backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
+            <img src={`${api.POSTER}${media.poster_path}`} />
+            <div>
+              <h2>{media.title || media.name}</h2>
+              <span>{media.release_date || media.first_air_date}</span>
+              <Percent>{media.vote_average}</Percent>
+            </div>
+          </Header>
+          <Body backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
+            <article>
+              {media.genres.map((genre, index) => (
+                <span key={genre.id}>{genre.name}</span>
+              ))}
+            </article>
+            {media.tagline && (
+              <blockquote className="tagname">" {media.tagline}"</blockquote>
+            )}
+            <h2>Overview</h2>
+            <p className="overview">{media.overview}</p>
+            <br />
+            <hr />
+            <br />
+            {media.homepage && (
+              <p className="homepage-link">
+                You can Visit the homepage{" "}
+                <a href={`${media.homepage}`}>here</a>
+              </p>
+            )}{" "}
+            {!isErrorProviders && !isLoadingProviders && (
+              <div>
+                {
+                  Object.entries(responseProviders.data.results).map((el,index)=>{
+                    if(el[0] === "US"){
+                      providers = el[1]
+                    }
+                  }) 
+                }
+
+                {Object.entries(providers).map(( provider,index )=>{
+                  if(provider[0] !== "link"){
+                    return(
+                      <Network
+                          name={provider[1][0].provider_name}
+                          logo={provider[1][0].logo_path}
+                        api={api.POSTER}
+                        key={index}
+                        />
+                    )
+                  }
+                })}
+              </div>
+            )}
+          </Body>
+          <h2 style={{ marginLeft: "1rem" }}>Main cast</h2>
+          {!isLoadingCredits && (
+            <Scroll>
+              {credits.data.cast.map((cast, index) => {
+                if (index < 8)
+                  return (
+                    <Card
+                      key={cast.id}
+                      name={cast.name}
+                      api={api.POSTER}
+                      photo={cast.profile_path}
+                      character={cast.character}
+                    />
+                  );
+              })}
+            </Scroll>
+          )}
+        </Container>
+      )}
+    </div>
+  );
+};
+export default Details;
