@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 const HeaderContainer = styled.div`
   width: 100%;
+
   background-image: linear-gradient(to right, #000 0% 30%, #2225),
-    url(${props => props.api}${props => props.backDrop});
+    url(${props => props.api}${props => props.backDrop });
   background-position: center center;
   background-size: cover;
   background-repeat: norepeat;

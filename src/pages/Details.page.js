@@ -50,43 +50,53 @@ const Details = (props) => {
             {media.tagline && (
               <blockquote className="tagname">" {media.tagline}"</blockquote>
             )}
-            <h2>Overview</h2>
-            <p className="overview">{media.overview}</p>
-            <br />
-            <hr />
-            <br />
+            {media.overview && (
+              <>
+                <h2>Overview</h2>
+                <p className="overview">{media.overview}</p>
+                <br />
+                <hr />
+                <br />
+              </>
+            )}
+            {!isErrorProviders && !isLoadingProviders && (
+              <div>
+                {Object.entries(responseProviders.data.results).map(
+                  (el, index) => {
+                    if (el[0] === "US") {
+                      providers = el[1];
+                    } else {
+                      return;
+                    }
+                  }
+                )}
+
+                {providers &&
+                  Object.entries(providers).map((provider, index) => {
+                    if (provider[0] !== "link" && provider[0] !== "buy") {
+                      return (
+                        <Network
+                          name={provider[1][0].provider_name}
+                          logo={provider[1][0].logo_path}
+                          api={api.POSTER}
+                          key={index}
+                        />
+                      );
+                    } else {
+                      return;
+                    }
+                  })}
+              </div>
+            )}
             {media.homepage && (
               <p className="homepage-link">
                 You can Visit the homepage{" "}
                 <a href={`${media.homepage}`}>here</a>
               </p>
             )}{" "}
-            {!isErrorProviders && !isLoadingProviders && (
-              <div>
-                {
-                  Object.entries(responseProviders.data.results).map((el,index)=>{
-                    if(el[0] === "US"){
-                      providers = el[1]
-                    }
-                  }) 
-                }
-
-                {Object.entries(providers).map(( provider,index )=>{
-                  if(provider[0] !== "link"){
-                    return(
-                      <Network
-                          name={provider[1][0].provider_name}
-                          logo={provider[1][0].logo_path}
-                        api={api.POSTER}
-                        key={index}
-                        />
-                    )
-                  }
-                })}
-              </div>
-            )}
           </Body>
           <h2 style={{ marginLeft: "1rem" }}>Main cast</h2>
+
           {!isLoadingCredits && (
             <Scroll>
               {credits.data.cast.map((cast, index) => {

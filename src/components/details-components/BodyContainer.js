@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { useEffect } from "react";
 
 const BodyContainer = styled.div`
   background-image: url(${(props) => props.api}${(props) => props.backDrop});
@@ -42,9 +43,12 @@ const BodyDiv = styled.div`
   backdrop-filter: blur(5rem);
 `;
 
-const Body = ({ children, backDrop, api }) => (
-  <BodyContainer api={api} backDrop={backDrop}>
-    <BodyDiv>{children}</BodyDiv>
-  </BodyContainer>
-);
+const Body = ({ children, backDrop, api }) => {
+
+  return (
+    <BodyContainer api={api} backDrop={backDrop}>
+      <BodyDiv>{children}</BodyDiv>
+    </BodyContainer>
+  );
+};
 export default Body;

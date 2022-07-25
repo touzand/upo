@@ -17,9 +17,9 @@ background-color:whitesmoke;
 
 const SearchOption = ( {props} ) =>(
   <div>
-    {props.media_type === "movie" && <Link to={ `/movie/${props.id}` }><Option><i className="bi bi-film"></i>{props.original_title}</Option></Link>}
-    {props.media_type === "tv" && <Link to={`/tv/${props.id}`}><Option><i className="bi bi-tv"></i>{props.name}</Option></Link>}
-    {props.media_type === "person" && <Link to={`/person/${props.id}`}><Option><i className="bi bi-person-fill"></i>{props.name}</Option></Link>}
+    {props.media_type === "movie" && <a href={`/movie/${props.id}`}><Option><i className="bi bi-film"></i>{props.original_title}</Option></a>}
+    {props.media_type === "tv" && <a href={`/tv/${props.id}`}><Option><i className="bi bi-tv"></i>{props.name}</Option></a>}
+    {props.media_type === "person" && <a href={`/person/${props.id}`}><Option><i className="bi bi-person-fill"></i>{props.name}</Option></a>}
   </div>
 )
 export default SearchOption

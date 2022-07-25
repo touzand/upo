@@ -14,6 +14,7 @@ const SearchQueryContainer = styled.div`
 `;
 
 const InputContainer = styled.div`
+z-index:2;
   width: 100%;
   padding: 0.5rem;
   position: absolute;
@@ -86,8 +87,8 @@ const SearchInput = (props) => {
       </div>
       <hr />
       <SearchQueryContainer>
-        {queryOpctions.map((props) => (
-          <SearchOption props={props} key={props.id} />
+        {queryOpctions.map((propis) => (
+          <SearchOption props={propis} key={propis.id} setInputVisible={props.setInputVisible} inputVisible={props.inputVisible}/>
         ))}
       </SearchQueryContainer>
     </InputContainer>
