@@ -6,7 +6,8 @@ import Percent from "../components/Percent";
 import Container from "../components/details-components/DetailContainer";
 import Header from "../components/details-components/HeaderContainer";
 import Body from "../components/details-components/BodyContainer";
-import Credits from '../components/details-components/CreditsContainer'
+import Card from "../components/details-components/CreditsCard";
+import Scroll from '../components/details-components/ScrollContainer'
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -14,9 +15,9 @@ const MovieDetails = () => {
     url: `/movie/${id}?api_key=${API_KEY}&language=en-US`,
   });
 
-  const [credits,isErrorCredits,isLoadingCredits] = useAxios({
+  const [credits, isErrorCredits, isLoadingCredits] = useAxios({
     url: `/movie/${id}/credits?api_key=${API_KEY}&language=en-US`,
-  })
+  });
 
   let movie = response.data;
 
@@ -40,18 +41,27 @@ const MovieDetails = () => {
                 <span key={genre.id}>{genre.name}</span>
               ))}
             </article>
-          {movie.tagline && <blockquote className="tagname">" {movie.tagline}"</blockquote>}
+            {movie.tagline && (
+              <blockquote className="tagname">" {movie.tagline}"</blockquote>
+            )}
             <h2>Overview</h2>
-            <p className="overview">
-              {movie.overview}
-            </p>
+            <p className="overview">{movie.overview}</p>
+            <br/>
+            <hr />
+            <br/>
+            {movie.homepage && (
+              <p className="homepage-link">
+                You can Visit the homepage{" "}
+                <a href={`${movie.homepage}`}>here</a>
+              </p>
+            )}{" "}
           </Body>
-          <div>
-            <h2>Main cast</h2>
-            <Credits>
-              {console.log(credits)}
-            </Credits>
-          </div>
+            <h2 style={{marginLeft:"1rem"}}>Main cast</h2>
+            { ! isLoadingCredits &&
+              <Scroll>
+                {credits.data.cast.map((cast,index)=>{if(index < 8)return <Card key={cast.id} name={cast.name} api={api.POSTER} photo={cast.profile_path} character={cast.character}/>  })}
+              </Scroll>
+            }
         </Container>
       )}
     </div>
