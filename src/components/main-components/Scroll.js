@@ -16,12 +16,14 @@ const Scroll = (props) => {
     method: "get",
   });
 
+  let animationDelayStartAt = 0
+
   return (
     <>
     {props.children}
     <ScrollContainer>
       {isLoading ? <Loader /> : 
-          response.data.results.map(( propis,index  )=><ScrollCard mediaType={props.mediaType} props={propis} key={propis.id}/>)
+          response.data.results.map(( propis,index  )=><ScrollCard animationDelay={animationDelayStartAt + `.${index}`} mediaType={props.mediaType} props={propis} key={propis.id}/>)
       }
     </ScrollContainer>
     </>
