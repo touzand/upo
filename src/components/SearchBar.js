@@ -11,15 +11,27 @@ const SearchQueryContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
+  background-color: white;
 `;
 
 const InputContainer = styled.div`
-z-index:2;
+  z-index: 2;
   width: 100%;
   padding: 0.5rem;
   position: absolute;
-  background-color: #ddd;
+  background-color: white;
   animation: ${InputContainerVisible} 1s ease both;
+
+  .input-container {
+    & * {
+      font-size: 1rem;
+    }
+    div {
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+      background-color: #ddd;
+    }
+  }
 
   div {
     display: flex;
@@ -35,6 +47,7 @@ z-index:2;
 
     div {
       flex-grow: 1;
+      background-color: white;
 
       i {
         color: grey;
@@ -73,7 +86,7 @@ const SearchInput = (props) => {
 
   return (
     <InputContainer>
-      <div>
+      <div className="input-container">
         <div>
           <i className="bi bi-search"></i>
           <input
@@ -88,7 +101,12 @@ const SearchInput = (props) => {
       <hr />
       <SearchQueryContainer>
         {queryOpctions.map((propis) => (
-          <SearchOption props={propis} key={propis.id} setInputVisible={props.setInputVisible} inputVisible={props.inputVisible}/>
+          <SearchOption
+            props={propis}
+            key={propis.id}
+            setInputVisible={props.setInputVisible}
+            inputVisible={props.inputVisible}
+          />
         ))}
       </SearchQueryContainer>
     </InputContainer>

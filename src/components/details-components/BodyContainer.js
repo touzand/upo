@@ -4,7 +4,7 @@ import { useEffect } from "react";
 const BodyContainer = styled.div`
   background-image: url(${(props) => props.api}${(props) => props.backDrop});
   background-position: center center;
-  background-size: cover;
+  background-size: 300px 100px;
   background-repeat: norepeat;
   color: white;
 

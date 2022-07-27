@@ -9,6 +9,7 @@ import Body from "../components/details-components/BodyContainer";
 import Card from "../components/details-components/CreditsCard";
 import Scroll from "../components/details-components/ScrollContainer";
 import Network from "../components/details-components/NetworkContainer";
+import Season from "../components/details-components/Season";
 
 const Details = (props) => {
   const { id } = useParams();
@@ -26,6 +27,7 @@ const Details = (props) => {
 
   let media = response.data;
   let providers;
+  let lastSeason;
 
   return (
     <div>
@@ -95,7 +97,7 @@ const Details = (props) => {
               </p>
             )}{" "}
           </Body>
-          <h2 style={{ marginLeft: "1rem" }}>Main cast</h2>
+          <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
 
           {!isLoadingCredits && (
             <Scroll>
@@ -112,6 +114,19 @@ const Details = (props) => {
                   );
               })}
             </Scroll>
+          )}
+          {!isLoading && media.seasons && (
+            <>
+            <h3 style={{ marginLeft: "1rem" }}>Last season</h3>
+              <Season
+                name={media.seasons[media.seasons.length - 1].name}
+                airDate={media.seasons[media.seasons.length - 1].air_date}
+                episodeCount={
+                  media.seasons[media.seasons.length - 1].episode_count
+                }
+                overview={media.seasons[media.seasons.length - 1].overview}
+              />
+            </>
           )}
         </Container>
       )}
