@@ -6,7 +6,7 @@ import {api} from "../services/api"
 
 const HeaderContainer = styled.header`
   text-align: center;
-  background-image:radial-gradient(black,#2225),url( ${props => props.api}${props=>props.backgroundPath} );
+  background-image:linear-gradient(to top,black,#2228),url( ${props => props.api}${props=>props.backgroundPath} );
   color:white;
   font-weight:bold;
   background-size: cover;
