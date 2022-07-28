@@ -10,6 +10,8 @@ import Card from "../components/details-components/CreditsCard";
 import Scroll from "../components/details-components/ScrollContainer";
 import Network from "../components/details-components/NetworkContainer";
 import Season from "../components/details-components/Season";
+import Reviews from '../components/details-components/Reviews'
+import ReviewsCard from '../components/details-components/ReviewsCard'
 
 const Details = (props) => {
   const { id } = useParams();
@@ -25,9 +27,12 @@ const Details = (props) => {
     url: `/${props.mediaType}/${id}/credits?api_key=${API_KEY}&language=en-US`,
   });
 
+  const [responseReviews, isErrorReviews, isLoadingReviews] = useAxios({
+    url: `/${props.mediaType}/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+  });
+
   let media = response.data;
   let providers;
-  let lastSeason;
 
   return (
     <div>
@@ -128,6 +133,9 @@ const Details = (props) => {
               />
             </>
           )}
+            {!isLoadingReviews && (
+              <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
+            )}
         </Container>
       )}
     </div>
