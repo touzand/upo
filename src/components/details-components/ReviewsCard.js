@@ -1,14 +1,18 @@
 import {api} from '../../services/api'
 import styled from "styled-components";
 
-const ReviewsCardContainer = styled.div``;
+const ReviewsCardContainer = styled.div`
+margin:1rem;
+padding:1rem;
+border:.5px solid grey;
+`;
 
-const ReviewsCard = props =>(
+const ReviewsCard = ( { props } ) =>(
 
   <ReviewsCardContainer>
     <div>
-      <div><img src={`${api.POSTER}${ props.props.author_details.avatar_path }`}/></div>
-      <span></span>
+      <h3>{props.author}</h3>
+      <p>{props.content}</p>
     </div>
   </ReviewsCardContainer>
 

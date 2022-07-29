@@ -5,6 +5,7 @@ const BodyContainer = styled.div`
   background-image: url(${(props) => props.api}${(props) => props.backDrop});
   background-position: center center;
   background-repeat: no-repeat;
+  background-size:cover;
   color: white;
 
   .tagname {
@@ -39,7 +40,7 @@ const BodyDiv = styled.div`
   padding: 1rem;
   widht: 100%;
   height: 100%;
-  backdrop-filter: blur(5rem);
+  backdrop-filter: blur(15px);
 `;
 
 const Body = ({ children, backDrop, api }) => {

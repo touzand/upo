@@ -1,3 +1,4 @@
+import {useState} from 'react'
 import { useParams } from "react-router";
 import useAxios from "../hooks/useAxios";
 import { API_KEY, api } from "../services/api";
@@ -12,8 +13,11 @@ import Network from "../components/details-components/NetworkContainer";
 import Season from "../components/details-components/Season";
 import Reviews from '../components/details-components/Reviews'
 import ReviewsCard from '../components/details-components/ReviewsCard'
+import MediaVideos from '../components/details-components/MediaVideos.js'
+import MediaImages from '../components/details-components/MediaImages.js'
 
 const Details = (props) => {
+  const [videoVisisble,setVideoVisible] = useState(false)
   const { id } = useParams();
   const [response, isError, isLoading] = useAxios({
     url: `/${props.mediaType}/${id}?api_key=${API_KEY}&language=en-US`,
@@ -133,9 +137,17 @@ const Details = (props) => {
               />
             </>
           )}
-            {!isLoadingReviews && (
-              <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
-            )}
+            {/*
+              {!isLoadingReviews && (
+                <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
+                )}
+                */}
+              <button onClick={()=>setVideoVisible(videoVisisble=>false)}>image</button><button onClick={()=>setVideoVisible(videoVisisble=>true)}>video</button>
+              <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
+              {videoVisisble ? <MediaVideos id={id} mediaType={props.mediaType}/>  : <MediaImages mediaType={props.mediaType} id={id}/>}
+              <iframe id="ytplayer" type="text/html" width="640" height="360"
+                src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
+          frameborder="0"/>
         </Container>
       )}
     </div>
