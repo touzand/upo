@@ -145,9 +145,6 @@ const Details = (props) => {
               <button onClick={()=>setVideoVisible(videoVisisble=>false)}>image</button><button onClick={()=>setVideoVisible(videoVisisble=>true)}>video</button>
               <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
               {videoVisisble ? <MediaVideos id={id} mediaType={props.mediaType}/>  : <MediaImages mediaType={props.mediaType} id={id}/>}
-              <iframe id="ytplayer" type="text/html" width="640" height="360"
-                src="http://www.youtube.com/embed/M7lc1UVf-VE?autoplay=1&origin=http://example.com"
-          frameborder="0"/>
         </Container>
       )}
     </div>
