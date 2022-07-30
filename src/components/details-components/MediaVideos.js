@@ -42,7 +42,6 @@ const MediaVideos = (props) => {
 
   return (
     <Scroll>
-      {console.log(key)}
       {!isLoading &&
         response.data.results.map((video, id) => (
           <VideoContainer key={video.key}>

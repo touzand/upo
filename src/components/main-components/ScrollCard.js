@@ -23,7 +23,7 @@ const Card = styled.div`
 `;
 
 const SlideCard = ({ props,mediaType,animationDelay }) => (
-  <Link to={`/${mediaType}/${props.id}`}>
+  <Link to={`upo/${mediaType}/${props.id}`}>
     <Card animationDelay={animationDelay}>
       <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} />
     </Card>

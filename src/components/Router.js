@@ -8,11 +8,11 @@ const Router = () => (
   <BrowserRouter>
     <Nav/>
     <Routes>
-      <Route path="/" exact element={<Home/>} />
-      <Route path="/movie/:id" exat element={<Details mediaType='movie'/>} />
-      <Route path="/movie/:id/:key" exat element={<Details mediaType='movie'><YoutubeIframe/></Details>} />
-      <Route path="/tv/:id" element={<Details mediaType='tv'/>} />
-      <Route path="/tv/:id/:key" exat element={<Details mediaType='tv'><YoutubeIframe/></Details>} />
+      <Route path="/" element={<Home/>} />
+      <Route path="upo/movie/:id" exat element={<Details mediaType='movie'/>} />
+      <Route path="upo/movie/:id/:key" exat element={<Details mediaType='movie'><YoutubeIframe/></Details>} />
+      <Route path="upo/tv/:id" element={<Details mediaType='tv'/>} />
+      <Route path="upo/tv/:id/:key" exat element={<Details mediaType='tv'><YoutubeIframe/></Details>} />
     </Routes>
   </BrowserRouter>
 )

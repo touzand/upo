@@ -1,4 +1,4 @@
-import {useState} from 'react'
+import { useState } from "react";
 import { useParams } from "react-router";
 import useAxios from "../hooks/useAxios";
 import { API_KEY, api } from "../services/api";
@@ -11,13 +11,14 @@ import Card from "../components/details-components/CreditsCard";
 import Scroll from "../components/details-components/ScrollContainer";
 import Network from "../components/details-components/NetworkContainer";
 import Season from "../components/details-components/Season";
-import Reviews from '../components/details-components/Reviews'
-import ReviewsCard from '../components/details-components/ReviewsCard'
-import MediaVideos from '../components/details-components/MediaVideos.js'
-import MediaImages from '../components/details-components/MediaImages.js'
+import Reviews from "../components/details-components/Reviews";
+import ReviewsCard from "../components/details-components/ReviewsCard";
+import MediaVideos from "../components/details-components/MediaVideos.js";
+import MediaImages from "../components/details-components/MediaImages.js";
+import Recomendation from "../components/details-components/Recomendations";
 
-const Details = ({ mediaType,children }) => {
-  const [videoVisisble,setVideoVisible] = useState(false)
+const Details = ({ mediaType, children }) => {
+  const [videoVisisble, setVideoVisible] = useState(false);
   const { id } = useParams();
   const [response, isError, isLoading] = useAxios({
     url: `/${mediaType}/${id}?api_key=${API_KEY}&language=en-US`,
@@ -106,27 +107,31 @@ const Details = ({ mediaType,children }) => {
               </p>
             )}{" "}
           </Body>
-          <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
 
           {!isLoadingCredits && (
-            <Scroll>
-              {credits.data.cast.map((cast, index) => {
-                if (index < 8)
-                  return (
-                    <Card
-                      key={cast.id}
-                      name={cast.name}
-                      api={api.POSTER}
-                      photo={cast.profile_path}
-                      character={cast.character}
-                    />
-                  );
-              })}
-            </Scroll>
+            <>
+              <hr />
+              <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
+              <Scroll>
+                {credits.data.cast.map((cast, index) => {
+                  if (index < 8)
+                    return (
+                      <Card
+                        key={cast.id}
+                        name={cast.name}
+                        api={api.POSTER}
+                        photo={cast.profile_path}
+                        character={cast.character}
+                      />
+                    );
+                })}
+              </Scroll>
+            </>
           )}
           {!isLoading && media.seasons && (
             <>
-            <h3 style={{ marginLeft: "1rem" }}>Last season</h3>
+              <hr />
+              <h3 style={{ marginLeft: "1rem" }}>Last season</h3>
               <Season
                 name={media.seasons[media.seasons.length - 1].name}
                 airDate={media.seasons[media.seasons.length - 1].air_date}
@@ -137,14 +142,19 @@ const Details = ({ mediaType,children }) => {
               />
             </>
           )}
-            {/*
+
+          {/*
               {!isLoadingReviews && (
                 <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
                 )}
                 */}
-              <button onClick={()=>setVideoVisible(videoVisisble=>false)}>image</button><button onClick={()=>setVideoVisible(videoVisisble=>true)}>video</button>
-              <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
-              {videoVisisble ? <MediaVideos id={id} mediaType={mediaType}/>  : <MediaImages mediaType={mediaType} id={id}/>}
+
+          <hr />
+
+          <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
+          <MediaVideos id={id} mediaType={mediaType} />
+          <hr />
+          <Recomendation id={id} mediaType={mediaType} />
         </Container>
       )}
       {children}

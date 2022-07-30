@@ -13,7 +13,7 @@ height:100vh;
 display:flex;
 justify-content:center;
 align-items:center;
-background-color:#0009;
+background-color:#00000099;
 
 iframe{
 
