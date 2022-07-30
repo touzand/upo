@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { API_KEY } from "../../services/api";
 import useAxios from "../../hooks/useAxios";
 import Scroll from "../details-components/ScrollContainer";
+import {Link,useParams} from 'react-router-dom'
 
 const VideoContainer = styled.div`
   div {
@@ -34,12 +35,14 @@ const VideoContainer = styled.div`
 `;
 
 const MediaVideos = (props) => {
+  const { key } = useParams()
   const [response, isError, isLoading] = useAxios({
     url: `/${props.mediaType}/${props.id}/videos?api_key=${API_KEY}&language=en-US&page=1`,
   });
 
   return (
     <Scroll>
+      {console.log(key)}
       {!isLoading &&
         response.data.results.map((video, id) => (
           <VideoContainer key={video.key}>
@@ -49,11 +52,11 @@ const MediaVideos = (props) => {
                   backgroundImage: `url('https://i.ytimg.com/vi/${video.key}/hqdefault.jpg')`,
                 }}
               >
-                <a href={`https://www.youtube.com/watch?v=${video.key}`} target="_blank">
+                <Link to={`${video.key}`}>
                   <i
                     className="bi bi-play-circle-fill"
                   ></i>
-                </a>
+                </Link>
               </div>
             </div>
           </VideoContainer>

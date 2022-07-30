@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {API_KEY} from '../../services/api'
 import useAxios from '../../hooks/useAxios'
 
-const VideosContainer = styled.div`
+const ImagesContainer = styled.div`
 
 `
 
@@ -13,9 +13,10 @@ const MediaImages = props =>{
 
   
   return(
-    <VideosContainer>
+
+    <ImagesContainer>
       {!isLoading && console.log(response)}
-    </VideosContainer>
+    </ImagesContainer>
   )
 }
 export default MediaImages

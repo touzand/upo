@@ -7,6 +7,8 @@ const BodyContainer = styled.div`
   background-repeat: no-repeat;
   background-size:cover;
   color: white;
+  position:relative;
+  
 
   .tagname {
     font-weight: bold;

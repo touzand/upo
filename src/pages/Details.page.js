@@ -16,23 +16,23 @@ import ReviewsCard from '../components/details-components/ReviewsCard'
 import MediaVideos from '../components/details-components/MediaVideos.js'
 import MediaImages from '../components/details-components/MediaImages.js'
 
-const Details = (props) => {
+const Details = ({ mediaType,children }) => {
   const [videoVisisble,setVideoVisible] = useState(false)
   const { id } = useParams();
   const [response, isError, isLoading] = useAxios({
-    url: `/${props.mediaType}/${id}?api_key=${API_KEY}&language=en-US`,
+    url: `/${mediaType}/${id}?api_key=${API_KEY}&language=en-US`,
   });
 
   const [responseProviders, isErrorProviders, isLoadingProviders] = useAxios({
-    url: `/${props.mediaType}/${id}/watch/providers?api_key=${API_KEY}&language=en-US`,
+    url: `/${mediaType}/${id}/watch/providers?api_key=${API_KEY}&language=en-US`,
   });
 
   const [credits, isErrorCredits, isLoadingCredits] = useAxios({
-    url: `/${props.mediaType}/${id}/credits?api_key=${API_KEY}&language=en-US`,
+    url: `/${mediaType}/${id}/credits?api_key=${API_KEY}&language=en-US`,
   });
 
   const [responseReviews, isErrorReviews, isLoadingReviews] = useAxios({
-    url: `/${props.mediaType}/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
+    url: `/${mediaType}/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`,
   });
 
   let media = response.data;
@@ -144,9 +144,10 @@ const Details = (props) => {
                 */}
               <button onClick={()=>setVideoVisible(videoVisisble=>false)}>image</button><button onClick={()=>setVideoVisible(videoVisisble=>true)}>video</button>
               <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
-              {videoVisisble ? <MediaVideos id={id} mediaType={props.mediaType}/>  : <MediaImages mediaType={props.mediaType} id={id}/>}
+              {videoVisisble ? <MediaVideos id={id} mediaType={mediaType}/>  : <MediaImages mediaType={mediaType} id={id}/>}
         </Container>
       )}
+      {children}
     </div>
   );
 };
