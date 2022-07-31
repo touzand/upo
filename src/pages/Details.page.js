@@ -17,6 +17,7 @@ import MediaVideos from "../components/details-components/MediaVideos.js";
 import MediaImages from "../components/details-components/MediaImages.js";
 import Recomendation from "../components/details-components/Recomendations";
 import Similar from "../components/details-components/Similar";
+import Data from '../components/details-components/Data'
 
 const Details = ({ mediaType, children }) => {
   const [videoVisisble, setVideoVisible] = useState(false);
@@ -111,9 +112,8 @@ const Details = ({ mediaType, children }) => {
 
           {!isLoadingCredits && (
             <>
-              <hr />
               <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
-              <Scroll paddingRight='1rem'>
+              <Scroll paddingRight="1rem">
                 {credits.data.cast.map((cast, index) => {
                   if (index < 8)
                     return (
@@ -153,8 +153,23 @@ const Details = ({ mediaType, children }) => {
           <hr />
 
           <MediaVideos id={id} mediaType={mediaType} />
-          <Recomendation id={id} mediaType={mediaType} paddingRight='1rem'/>
+          <Recomendation id={id} mediaType={mediaType} paddingRight="1rem" />
           <Similar id={id} mediaType={mediaType} />
+          <Data>
+            <h2 style={{ marginLeft: "1rem" }}>Data</h2>
+            <h3>Original title</h3>
+            <span>{media.title || media.name}</span>
+            <h3>State</h3>
+            <span>{media.status}</span>
+            <h3>Original language</h3>
+            <span>{media.original_language}</span>
+            <h3>Budget</h3>
+            <span>{media.budget ? new Intl.NumberFormat('ud-US', { style: 'currency', currency: 'USD'  }).format(media.budget) : '-'}</span>
+            <h3>Revenue</h3>
+            <span>{media.revenue ? new Intl.NumberFormat('ud-US', { style: 'currency', currency: 'USD'  }).format(media.revenue) : '-'}</span>
+            
+
+          </Data>
         </Container>
       )}
       {children}

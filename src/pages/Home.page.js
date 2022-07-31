@@ -7,6 +7,7 @@ import Loader from '../components/Loader'
 const HomeContainer = styled.div`
 background-color:black;
 color:whitesmoke;
+padding-bottom:6rem;
 
 h2{
 margin-left:1rem;

@@ -5,7 +5,8 @@ const ScrollContainer = styled.div`
   display: flex;
   overflow: hidden;
   overflow-x: scroll;
-  padding-right:${props=>props.paddingRight}
+  padding-right:${props=>props.paddingRight};
+  padding-bottom:1rem;
 `;
 
 const Scroll = ({ children,paddingRight }) => (
