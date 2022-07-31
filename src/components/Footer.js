@@ -1,6 +1,19 @@
+import styled from 'styled-components'
+
+const FooterContainer = styled.footer`
+text-align:center;
+background-color:black;
+maring:0;
+color:white;
+padding:.5rem 0 ;
+position:relative;
+bottom:0;
+
+`
+
 const Footer = () => (
-  <footer>
-    <p>footer</p>
-  </footer>
+  <FooterContainer>
+    <p>Make by Alan G. Alonso ( Touzand )</p>
+  </FooterContainer>
 )
 export default Footer;

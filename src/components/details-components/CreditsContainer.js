@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 const CreditsContainer = styled.div`
+padding:1rem;
 
 `
 

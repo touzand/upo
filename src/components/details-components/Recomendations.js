@@ -36,9 +36,9 @@ const Recomendation = props =>{
 
     <div>
     <h3 style={{paddingLeft:'1rem'}}>Recomendation</h3>
-    <Scroll>
+    <Scroll paddingRight={props.paddingRight}>
       {!isLoading && response.data.results.map(media=>
-        <RecomendationContainer>
+        <RecomendationContainer key={media.id}>
           <a href={`../${props.mediaType}/${media.id}`}>
           <img src={`${api.POSTER}${media.backdrop_path}`}/>
         </a>
@@ -51,7 +51,8 @@ const Recomendation = props =>{
         </div>
         </RecomendationContainer>
         )}
-    </Scroll>
+      </Scroll>
+      <hr/>
     </div>
       }
     </div>

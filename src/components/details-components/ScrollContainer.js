@@ -5,9 +5,10 @@ const ScrollContainer = styled.div`
   display: flex;
   overflow: hidden;
   overflow-x: scroll;
+  padding-right:${props=>props.paddingRight}
 `;
 
-const Scroll = ({ children }) => (
-  <ScrollContainer>{children}</ScrollContainer>
+const Scroll = ({ children,paddingRight }) => (
+  <ScrollContainer paddingRight={paddingRight}>{children}</ScrollContainer>
 );
 export default Scroll;

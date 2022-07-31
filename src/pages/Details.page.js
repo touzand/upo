@@ -16,6 +16,7 @@ import ReviewsCard from "../components/details-components/ReviewsCard";
 import MediaVideos from "../components/details-components/MediaVideos.js";
 import MediaImages from "../components/details-components/MediaImages.js";
 import Recomendation from "../components/details-components/Recomendations";
+import Similar from "../components/details-components/Similar";
 
 const Details = ({ mediaType, children }) => {
   const [videoVisisble, setVideoVisible] = useState(false);
@@ -112,7 +113,7 @@ const Details = ({ mediaType, children }) => {
             <>
               <hr />
               <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
-              <Scroll>
+              <Scroll paddingRight='1rem'>
                 {credits.data.cast.map((cast, index) => {
                   if (index < 8)
                     return (
@@ -151,10 +152,9 @@ const Details = ({ mediaType, children }) => {
 
           <hr />
 
-          <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
           <MediaVideos id={id} mediaType={mediaType} />
-          <hr />
-          <Recomendation id={id} mediaType={mediaType} />
+          <Recomendation id={id} mediaType={mediaType} paddingRight='1rem'/>
+          <Similar id={id} mediaType={mediaType} />
         </Container>
       )}
       {children}

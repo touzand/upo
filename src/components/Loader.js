@@ -1,20 +1,18 @@
-import styled, {keyframes} from 'styled-components'
+import styled from 'styled-components'
+import '../index.css'
 
-const rollign = keyframes`
-0%{transform:rotate(0deg)}
-100%{transform:rotate(360deg)}
-`
+const LoaderContainer = styled.div`
+width:100%;
+height:200px;
+display:flex;
+justify-content:center;
+align-items:center;
 
-const LoaderStyled = styled.div`
-width:100px;
-height:100px;
-border:thick solid grey;
-border-top-color:navy;
-border-radius:50%;
-animation:${rollign} 1s ease;
 `
 
 const Loader = (  ) =>(
-  <LoaderStyled/>
+  <LoaderContainer>
+  <span className='loader'></span>
+  </LoaderContainer>
 )
 export default Loader

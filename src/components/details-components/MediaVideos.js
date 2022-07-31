@@ -41,26 +41,34 @@ const MediaVideos = (props) => {
   });
 
   return (
+    <div>
+      {!isLoading && response.data.results.length !== 0 && (
+        <div>
+    <h3 style={{ marginLeft: "1rem" }}>Visual content</h3>
     <Scroll>
-      {!isLoading &&
+    {!isLoading &&
         response.data.results.map((video, id) => (
           <VideoContainer key={video.key}>
-            <div>
-              <div
-                style={{
-                  backgroundImage: `url('https://i.ytimg.com/vi/${video.key}/hqdefault.jpg')`,
-                }}
-              >
-                <Link to={`${video.key}`}>
-                  <i
-                    className="bi bi-play-circle-fill"
-                  ></i>
-                </Link>
-              </div>
-            </div>
+          <div>
+          <div
+          style={{
+            backgroundImage: `url('https://i.ytimg.com/vi/${video.key}/hqdefault.jpg')`,
+          }}
+        >
+          <Link to={`${video.key}`}>
+            <i
+            className="bi bi-play-circle-fill"
+          ></i>
+        </Link>
+      </div>
+    </div>
+          <hr />
           </VideoContainer>
         ))}
     </Scroll>
+        </div>
+      )}
+    </div>
   );
 };
 

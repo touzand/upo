@@ -8,6 +8,7 @@ width:100%;
 display:flex;
 overflow:hidden;
 overflow-x:scroll;
+padding-right:.5rem;
 `;
 
 const Scroll = (props) => {

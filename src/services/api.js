@@ -8,4 +8,8 @@ export const api = {
   TV_POPULAR_LIST:`${API_ENDPOINT}/tv/popular?api_key=${API_KEY}&language=en-US&page=1`,
   BACKDROP_PATH:`https://image.tmdb.org/t/p/w500`,
   POSTER:`https://image.tmdb.org/t/p/w500`,
+  MOVIE_TOP_RATED:`${API_ENDPOINT}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
+  TV_TOP_RATED:`${API_ENDPOINT}/tv/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
+  MOVIE_UPCOMING:`${API_ENDPOINT}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
+
 }
