@@ -6,12 +6,12 @@ display:flex;
 cursor:pointer;
 padding:.25rem;
 border-radius:.25rem;
-color:black;
 text-decoration:none;
+color:white;
 width:100%;
 
 &:hover{
-background-color:whitesmoke;
+background-color:var(--dark-70);
 }
 `
 

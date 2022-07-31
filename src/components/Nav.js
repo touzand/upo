@@ -2,10 +2,13 @@ import {useState} from 'react'
 import styled from 'styled-components'
 import SearchBar from './SearchBar'
 import {Link} from 'react-router-dom'
+import '../index.css'
 
 const NavContainer = styled.nav`
 display:flex;
 justify-content:space-between;
+color:white;
+background-color:var(--dark);
 
 .nav-icon{
 font-size:1.5rem;
@@ -14,7 +17,7 @@ cursor:pointer;
 }
 
 a{
-color:black;
+color:white;
 }
 `
 

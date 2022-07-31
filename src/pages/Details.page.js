@@ -60,7 +60,8 @@ const Details = ({ mediaType, children }) => {
               {media.genres.map((genre, index) => (
                 <span key={genre.id}>{genre.name}</span>
               ))}
-            </article>
+              </article>
+              <div className='cristal'>
             {media.tagline && (
               <blockquote className="tagname">" {media.tagline}"</blockquote>
             )}
@@ -73,6 +74,7 @@ const Details = ({ mediaType, children }) => {
                 <br />
               </>
             )}
+              </div>
             {!isErrorProviders && !isLoadingProviders && (
               <div>
                 {Object.entries(responseProviders.data.results).map(

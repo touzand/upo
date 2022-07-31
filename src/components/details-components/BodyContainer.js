@@ -43,6 +43,13 @@ const BodyDiv = styled.div`
   widht: 100%;
   height: 100%;
   backdrop-filter: blur(15px);
+
+.cristal{
+padding:1rem;
+margin:1rem 0;
+background-color:#0009;
+}
+
 `;
 
 const Body = ({ children, backDrop, api }) => {

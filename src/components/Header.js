@@ -3,10 +3,11 @@ import styled from "styled-components";
 import SearchBar from "../components/SearchBar";
 import useAxios from "../hooks/useAxios";
 import {api} from "../services/api"
+import '../index.css'
 
 const HeaderContainer = styled.header`
   text-align: center;
-  background-image:linear-gradient(to top,black,#2228),url( ${props => props.api}${props=>props.backgroundPath} );
+  background-image:linear-gradient(to top,var(--dark),#2228),url( ${props => props.api}${props=>props.backgroundPath} );
   color:white;
   font-weight:bold;
   background-size: cover;
@@ -26,6 +27,9 @@ const HeaderContainer = styled.header`
   button{
   width:150px;
   padding:.5rem;
+  background-color:var(--primal-color);
+  border:none;
+  color:white;
   }
 
   div{

@@ -1,9 +1,10 @@
 import styled from "styled-components";
+import '../../index.css'
 
 const HeaderContainer = styled.div`
   width: 100%;
 
-  background-image: linear-gradient(to right, #000 0% 30%, #2225),
+  background-image: linear-gradient(to right, var(--dark) 0% 30%, #2229),
     url(${props => props.api}${props => props.backDrop });
   background-position: center center;
   background-size: cover;

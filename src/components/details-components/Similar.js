@@ -4,9 +4,10 @@ import useAxios from "../../hooks/useAxios";
 import Scroll from "../details-components/ScrollContainer";
 import { Link } from "react-router-dom";
 import Percent from "../Percent";
+import '../../index.css'
 
 const Container = styled.div`
-  background-image:linear-gradient(to bottom,#0009,#000),url( ${props => props.api}${props=>props.backgroundPath} );
+  background-image:linear-gradient(to bottom,#0009,var(--dark)),url( ${props => props.api}${props=>props.backgroundPath} );
   background-position:center;
   background-size:cover;
   padding-top:.5rem;

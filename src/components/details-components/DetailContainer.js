@@ -1,6 +1,10 @@
 import styled from "styled-components";
+import '../../index.css'
 
 const DetailContainer = styled.div`
+background-color:white;
+color:var(--dark);
+
   article {
     span {
       border: thin solid ;

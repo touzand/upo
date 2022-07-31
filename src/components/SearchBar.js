@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { useState, useEffect } from "react";
 import SearchOption from "./SearchOption";
+import '../index.css'
 
 const InputContainerVisible = keyframes`
 0%{top:90vh}
@@ -11,7 +12,7 @@ const SearchQueryContainer = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: white;
+  background-color: var(--dark);
 `;
 
 const InputContainer = styled.div`
@@ -19,17 +20,22 @@ const InputContainer = styled.div`
   width: 100%;
   padding: 0.5rem;
   position: absolute;
-  background-color: white;
+  background-color: var(--dark);
   animation: ${InputContainerVisible} 1s ease both;
+
+  hr{
+  border:thin solid grey;
+  }
 
   .input-container {
     & * {
       font-size: 1rem;
+      color:grey;
     }
     div {
       padding: 0.5rem;
       border-radius: 0.5rem;
-      background-color: #ddd;
+  background-color: var(--dark-70);
     }
   }
 
@@ -47,7 +53,7 @@ const InputContainer = styled.div`
 
     div {
       flex-grow: 1;
-      background-color: white;
+      background-color: var(--dark);
 
       i {
         color: grey;

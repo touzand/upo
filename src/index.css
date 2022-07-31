@@ -1,7 +1,16 @@
+:root{
+  --primal-color : #007acc;
+  --dark-70 : #3e3e42;
+  --dark-80 : #2d2d30;
+  --dark-90 : #252526;
+  --dark : #0e0e0e;
+}
+
 html {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
+  background-color:var(--dark);
 }
 
 body {
@@ -27,6 +36,7 @@ a {
   text-decoration: none;
 }
 
+/*Loader styles*/
 .loader {
   width: calc(100px - 24px);
   height: 50px;
@@ -41,7 +51,7 @@ a {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  background: #fff;
+  background: var(--primal-color);;
   transform-origin: -24px 50%;
   animation: spin 1s infinite linear;
 }
@@ -51,7 +61,7 @@ a {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: #fff;
+  background: var(--primal-color);;
   width: 48px;
   height: 48px;
   border-radius: 50%;
