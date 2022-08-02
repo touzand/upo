@@ -19,7 +19,7 @@ const InputContainer = styled.div`
   z-index: 2;
   width: 100%;
   padding: 0.5rem;
-  position: absolute;
+  position: fixed;
   background-color: var(--dark);
   animation: ${InputContainerVisible} 1s ease both;
 

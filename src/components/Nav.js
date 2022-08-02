@@ -5,7 +5,9 @@ import {Link} from 'react-router-dom'
 import '../index.css'
 
 const NavContainer = styled.nav`
+height:60px;
 display:flex;
+align-items:center;
 justify-content:space-between;
 color:white;
 background-color:var(--dark);
@@ -21,8 +23,7 @@ color:white;
 }
 `
 
-const Nav = () => {
-const [inputVisible,setInputVisible] = useState(false)
+const Nav = props => {
 
   return(
     <NavContainer>
@@ -30,10 +31,10 @@ const [inputVisible,setInputVisible] = useState(false)
         <i className="bi bi-list"></i>
       </div>
       <Link to="/" className='nav-icon'>UPO</Link>
-    <div onClick={()=>setInputVisible(true)} className='nav-icon'>
+    <div onClick={()=>props.setInputVisible(true)} className='nav-icon'>
           <i className="bi bi-search"></i>
     </div>
-      {inputVisible && <SearchBar inputVisible={inputVisible} setInputVisible={setInputVisible}/>}
+      {props.inputVisible && <SearchBar inputVisible={props.inputVisible} setInputVisible={props.setInputVisible}/>}
     </NavContainer>
   )}
 export default Nav;

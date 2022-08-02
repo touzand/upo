@@ -7,10 +7,11 @@ import '../index.css'
 
 const HomeContainer = styled.div`
   color: whitesmoke;
-  padding-bottom: 6rem;
+  padding-bottom: 4rem;
 
   h2 {
     margin-left: 1rem;
+    font-size:1.4rem;
   }
 
   span{
@@ -18,9 +19,9 @@ const HomeContainer = styled.div`
   }
 `;
 
-const Home = () => (
+const Home = props => (
   <HomeContainer>
-    <Header endPoint={api.MOVIE_POPULAR_LIST} />
+    <Header endPoint={api.MOVIE_POPULAR_LIST}  inputVisible={props.inputVisible} setInputVisible={props.setInputVisible}/>
     {/*<Loader/>*/}
     <Scroll endPoint={api.MOVIE_POPULAR_LIST} mediaType="movie">
       <h2><span>- </span>Top movies</h2>

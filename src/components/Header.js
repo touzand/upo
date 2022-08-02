@@ -6,7 +6,8 @@ import {api} from "../services/api"
 import '../index.css'
 
 const HeaderContainer = styled.header`
-  text-align: center;
+padding:1rem;
+  text-align: left;
   background-image:linear-gradient(to top,var(--dark),#2228),url( ${props => props.api}${props=>props.backgroundPath} );
   color:white;
   font-weight:bold;
@@ -14,14 +15,13 @@ const HeaderContainer = styled.header`
   background-position:center;
   background-repeat:no-repeat
   width:100%;
-  height:200px;
   display:flex;
   flex-direction:column;
-  align-items:center;
+  align-items:left;
   justify-content:center;
+  margin-bottom:4rem;
 
   p::before {
-    content: "Hi! Welcome to ";
   }
 
   button{
@@ -50,12 +50,12 @@ const Header = (props) => {
     <div>
       {!isLoading && 
           <HeaderContainer backgroundPath={response.data.results[ Math.floor(Math.random() * response.data.results.length) ].backdrop_path} api={api.POSTER}>
-      <p>UPO</p>
-      <button onClick={() => setInputVisible(true)}>Quick search</button>
+      <h1>A massive information base about a lot of movies and tv shows</h1>
+      <button onClick={() => props.setInputVisible(true)}>Quick search</button>
       {inputVisible && (
         <SearchBar
-          inputVisible={inputVisible}
-          setInputVisible={setInputVisible}
+          inputVisible={props.inputVisible}
+          setInputVisible={props.setInputVisible}
         />
       )}
     </HeaderContainer>

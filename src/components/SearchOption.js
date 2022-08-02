@@ -2,6 +2,7 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom'
 
 const Option = styled.div`
+font-size:1.3rem;
 display:flex;
 cursor:pointer;
 padding:.25rem;
