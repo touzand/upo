@@ -17,6 +17,7 @@ const HomeContainer = styled.div`
   span{
   color:var(--primal-color)
   }
+
 `;
 
 const Home = props => (

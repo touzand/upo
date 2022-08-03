@@ -8,6 +8,9 @@ padding:.5rem 0 ;
 position:relative;
 bottom:0;
 
+img{
+width:5rem;
+}
 `
 
 const Footer = () => (
