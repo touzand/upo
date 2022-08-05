@@ -68,6 +68,11 @@ const InputContainer = styled.div`
       }
     }
   }
+
+  @media(min-width: 800px){
+  width:400px;
+  position:absolute;
+ }
 `;
 
 const SearchInput = (props) => {

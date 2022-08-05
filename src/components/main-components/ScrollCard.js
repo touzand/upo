@@ -20,6 +20,13 @@ const Card = styled.div`
   h4 {
     margin-top: 0.5rem;
   }
+
+  @media (min-width:800px){
+
+img{
+width:150px;
+}
+  }
 `;
 
 const SlideCard = ({ props,mediaType,animationDelay }) => (
