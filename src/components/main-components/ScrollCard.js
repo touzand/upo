@@ -1,6 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import { Link } from "react-router-dom";
 import Percent from '../Percent'
+import '../../index.css'
 
 const fadeIn = keyframes`
 0%{top:8rem}
@@ -16,23 +17,42 @@ const Card = styled.div`
   img {
     border-radius: 0.25rem;
     width: 120px;
+
   }
 
   h4 {
     margin-top: 0.5rem;
   }
 
-  div {
+   .desktop-version-info{
     display: none;
   }
 
   @media (min-width: 800px) {
   margin-left:1rem;
 
+   .desktop-version-info{
+    display: flex;
+  }
+
+&:hover{
+img{
+mix-blend-mode:luminosity;
+}
+}
+
+.img-bg{
+      background-color:var(--primal-color);
+      border-radius:.25rem;
+
+}
+
     img {
       width: 150px;
       height: 225px;
       border-radius:.25rem .25rem 0rem 0rem;
+      position:relative;
+
     }
 
     div {
@@ -49,7 +69,7 @@ const Card = styled.div`
   span{
   color:var(--dark) !important;
   font-weight:bold;
-background-color:var(--dark-80) !important;
+background-image:linear-gradient(to right,var(--dark-70),var(--dark)) !important;
 
       }
     }
@@ -59,8 +79,10 @@ background-color:var(--dark-80) !important;
 const SlideCard = ({ props, mediaType, animationDelay }) => (
   <Link to={`upo/${mediaType}/${props.id}`}>
     <Card animationDelay={animationDelay}>
-      <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} />
-      <div>
+      <div className='img-bg'>
+    <img src={`https://image.tmdb.org/t/p/w500/${props.poster_path}`} />
+      </div> 
+      <div className='desktop-version-info'>
         <Percent>{props.vote_average}</Percent>
         <h4>{props.title || props.name}</h4>
       </div>

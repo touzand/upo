@@ -40,7 +40,7 @@ const BodyContainer = styled.div`
 
 const BodyDiv = styled.div`
   padding: 1rem;
-  widht: 100%;
+  width: 100%;
   height: 100%;
   backdrop-filter: blur(15px);
 
@@ -48,6 +48,14 @@ const BodyDiv = styled.div`
 padding:1rem;
 margin:1rem 0;
 background-color:#0009;
+}
+
+@media (min-width:800px){
+flex-grow:2;
+
+.cristal{
+}
+
 }
 
 `;

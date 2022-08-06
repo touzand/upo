@@ -1,11 +1,10 @@
 import styled from "styled-components";
-import '../../index.css'
+import "../../index.css";
 
 const HeaderContainer = styled.div`
   width: 100%;
-
   background-image: linear-gradient(to right, var(--dark) 0% 30%, #2229),
-    url(${props => props.api}${props => props.backDrop });
+    url(${(props) => props.api}${(props) => props.backDrop});
   background-position: center center;
   background-size: cover;
   background-repeat: norepeat;
@@ -29,9 +28,23 @@ const HeaderContainer = styled.div`
       color: grey;
     }
   }
+
+  @media (min-width: 800px) {
+  flex-grow:1;
+    width: 400px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+      width: 200px;
+    }
+  }
 `;
 
 const Header = ({ children, backDrop, api }) => (
-  <HeaderContainer backDrop={backDrop} api={api}>{children}</HeaderContainer>
+  <HeaderContainer backDrop={backDrop} api={api}>
+    {children}
+  </HeaderContainer>
 );
 export default Header;

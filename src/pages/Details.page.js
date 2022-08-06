@@ -47,72 +47,73 @@ const Details = ({ mediaType, children }) => {
         <Loader />
       ) : (
         <Container>
-          <Header backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
-            <img src={`${api.POSTER}${media.poster_path}`} />
-            <div>
-              <h2>{media.title || media.name}</h2>
-              <span>{media.release_date || media.first_air_date}</span>
-              <Percent>{media.vote_average}</Percent>
-            </div>
-          </Header>
-          <Body backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
-            <article>
-              {media.genres.map((genre, index) => (
-                <span key={genre.id}>{genre.name}</span>
-              ))}
-              </article>
-              <div className='cristal'>
-            {media.tagline && (
-              <blockquote className="tagname">" {media.tagline}"</blockquote>
-            )}
-            {media.overview && (
-              <>
-                <h2>Overview</h2>
-                <p className="overview">{media.overview}</p>
-                <br />
-                <hr />
-                <br />
-              </>
-            )}
-              </div>
-            {!isErrorProviders && !isLoadingProviders && (
+          <div className='general-body-container'> 
+            <Header backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
+              <img src={`${api.POSTER}${media.poster_path}`} />
               <div>
-                {Object.entries(responseProviders.data.results).map(
-                  (el, index) => {
-                    if (el[0] === "US") {
-                      providers = el[1];
-                    } else {
-                      return;
-                    }
-                  }
-                )}
-
-                {providers &&
-                  Object.entries(providers).map((provider, index) => {
-                    if (provider[0] !== "link" && provider[0] !== "buy") {
-                      return (
-                        <Network
-                          name={provider[1][0].provider_name}
-                          logo={provider[1][0].logo_path}
-                          api={api.POSTER}
-                          key={index}
-                        />
-                      );
-                    } else {
-                      return;
-                    }
-                  })}
+                <h2>{media.title || media.name}</h2>
+                <span>{media.release_date || media.first_air_date}</span>
+                <Percent>{media.vote_average}</Percent>
               </div>
-            )}
-            {media.homepage && (
-              <p className="homepage-link">
-                You can Visit the homepage{" "}
-                <a href={`${media.homepage}`}>here</a>
-              </p>
-            )}{" "}
-          </Body>
+            </Header>
+            <Body backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
+              <article>
+                {media.genres.map((genre, index) => (
+                  <span key={genre.id}>{genre.name}</span>
+                ))}
+                </article>
+                <div className='cristal'>
+                  {media.tagline && (
+                    <blockquote className="tagname">" {media.tagline}"</blockquote>
+                  )}
+                    {media.overview && (
+                      <>
+                      <h2>Overview</h2>
+                      <p className="overview">{media.overview}</p>
+                      <br />
+                      <hr />
+                      <br />
+                      </>
+                    )}
+                    </div>
+                    {!isErrorProviders && !isLoadingProviders && (
+                      <div className='providers-container'>
+                        {Object.entries(responseProviders.data.results).map(
+                          (el, index) => {
+                            if (el[0] === "US") {
+                              providers = el[1];
+                            } else {
+                              return;
+                            }
+                          }
+                        )}
 
-          {!isLoadingCredits && (
+                        {providers &&
+                            Object.entries(providers).map((provider, index) => {
+                              if (provider[0] !== "link" && provider[0] !== "buy") {
+                                return (
+                                  <Network
+                                  name={provider[1][0].provider_name}
+                                  logo={provider[1][0].logo_path}
+                                  api={api.POSTER}
+                                  key={index}
+                                />
+                                );
+                              } else {
+                                return;
+                              }
+                            })}
+                                </div>
+                    )}
+                                {media.homepage && (
+                                  <p className="homepage-link">
+                                    You can Visit the homepage{" "}
+                                    <a href={`${media.homepage}`}>here</a>
+                                  </p>
+                                )}{" "}
+                                </Body>
+
+        </div>          {!isLoadingCredits && (
             <>
               <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
               <Scroll paddingRight="1rem">

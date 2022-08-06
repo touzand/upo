@@ -63,6 +63,7 @@ align-items:center;
   text-align:right;
   color:#ddd3;
   gap:2rem;
+  cursor:default;
 
   &:hover{
   img{
@@ -92,7 +93,7 @@ align-items:center;
 display:flex;
 justify-content:space-between;
 align-items:center;
-  padding:0 4rem;
+  padding:0 15vw;
 
   }
 
@@ -120,7 +121,6 @@ const Header = (props) => {
           backgroundPath={response.data.results[randomMediaIndex].backdrop_path}
           api={api.POSTER}
         >
-          {console.log(response.data.results[randomMediaIndex])}
           <div className="desktop-bg-information">
             <div>
               <h1>
