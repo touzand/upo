@@ -5,10 +5,9 @@ const BodyContainer = styled.div`
   background-image: url(${(props) => props.api}${(props) => props.backDrop});
   background-position: center center;
   background-repeat: no-repeat;
-  background-size:cover;
+  background-size: cover;
   color: white;
-  position:relative;
-  
+  position: relative;
 
   .tagname {
     font-weight: bold;
@@ -36,6 +35,10 @@ const BodyContainer = styled.div`
     color: #222;
     border-radius: 0.25rem;
   }
+
+  @media (min-width:800px){
+  background-image: linear-gradient(to right,transparent,black),url(${(props) => props.api}${(props) => props.backDrop});
+  }
 `;
 
 const BodyDiv = styled.div`
@@ -43,35 +46,84 @@ const BodyDiv = styled.div`
   width: 100%;
   height: 100%;
   backdrop-filter: blur(15px);
+  display:flex;
 
-.cristal{
-padding:1rem;
-margin:1rem 0;
-background-color:#0009;
-}
+  .cristal {
+    padding: 1rem;
+    margin: 1rem 0;
+    background-color: #0009;
+  }
 
-@media (min-width:800px){
-flex-grow:2;
+  .overview-desktop{
+  display:none;
+  }
 
-article{
-justify-content:left;
-}
+  @media (min-width: 800px) {
 
-.providers-container{
-justify-content:left;
-gap:1rem;
+    flex-grow: 2;
 
-}
+    .cristal{
+    p{
+height:100%;
 
-.cristal{
-}
+    }
 
-}
+    }
 
+  .overview-mobile{
+  display:none;
+  }
+
+  .overview-desktop{
+  display:initial;
+  }
+
+    article {
+      justify-content: left;
+    }
+
+    .providers-container {
+      justify-content: left;
+      margin-top:1rem;
+      gap: 1rem;
+    }
+
+    .cristal {
+    }
+
+    .body-desktop-version{
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    padding:2rem;
+
+    article{
+    width:100%;
+    }
+
+    div{
+    width:250px;
+
+    }
+
+    p{
+    width:100%;
+    }
+    }
+
+    .overview{
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+
+    hr{
+    display:none;
+    }
+    }
+  }
 `;
 
 const Body = ({ children, backDrop, api }) => {
-
   return (
     <BodyContainer api={api} backDrop={backDrop}>
       <BodyDiv>{children}</BodyDiv>

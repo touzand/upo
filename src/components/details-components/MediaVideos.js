@@ -62,7 +62,6 @@ const MediaVideos = (props) => {
         </Link>
       </div>
     </div>
-          <hr />
           </VideoContainer>
         ))}
     </Scroll>

@@ -31,7 +31,7 @@ const Recomendation = props =>{
   });
 
   return(
-    <div>
+    <div style={{marginBottom:'1rem'}}>
       {!isLoading && response.data.results.length !== 0 &&
 
     <div>
@@ -52,7 +52,6 @@ const Recomendation = props =>{
         </RecomendationContainer>
         )}
       </Scroll>
-      <hr/>
     </div>
       }
     </div>

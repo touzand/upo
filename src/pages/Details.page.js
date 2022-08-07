@@ -17,7 +17,7 @@ import MediaVideos from "../components/details-components/MediaVideos.js";
 import MediaImages from "../components/details-components/MediaImages.js";
 import Recomendation from "../components/details-components/Recomendations";
 import Similar from "../components/details-components/Similar";
-import Data from '../components/details-components/Data'
+import Data from "../components/details-components/Data";
 
 const Details = ({ mediaType, children }) => {
   const [videoVisisble, setVideoVisible] = useState(false);
@@ -47,7 +47,7 @@ const Details = ({ mediaType, children }) => {
         <Loader />
       ) : (
         <Container>
-          <div className='general-body-container'> 
+          <div className="general-body-container">
             <Header backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
               <img src={`${api.POSTER}${media.poster_path}`} />
               <div>
@@ -57,110 +57,129 @@ const Details = ({ mediaType, children }) => {
               </div>
             </Header>
             <Body backDrop={media.backdrop_path} api={api.BACKDROP_PATH}>
+              <div className="cristal overview-desktop">
+                {media.tagline && (
+                  <blockquote className="tagname">
+                    " {media.tagline}"
+                  </blockquote>
+                )}
+                {media.overview && (
+                  <div className="overview">
+                    <h2>Overview</h2>
+                    <p className="overview">{media.overview}</p>
+                    <br />
+                    <br />
+                    <hr />
+                  </div>
+                )}
+                </div>
+                <div className='body-desktop-version'>
               <article>
                 {media.genres.map((genre, index) => (
                   <span key={genre.id}>{genre.name}</span>
                 ))}
-                </article>
-                <div className='cristal'>
-                  {media.tagline && (
-                    <blockquote className="tagname">" {media.tagline}"</blockquote>
+              </article>
+              <div className="cristal overview-mobile">
+                {media.tagline && (
+                  <blockquote className="tagname">
+                    " {media.tagline}"
+                  </blockquote>
+                )}
+                {media.overview && (
+                  <div className="overview-mobile">
+                    <h2>Overview</h2>
+                    <p className="overview">{media.overview}</p>
+                    <br />
+                    <hr />
+                    <br />
+                  </div>
+                )}
+              </div>
+              {!isErrorProviders && !isLoadingProviders && (
+                <div className="providers-container">
+                  {Object.entries(responseProviders.data.results).map(
+                    (el, index) => {
+                      if (el[0] === "US") {
+                        providers = el[1];
+                      } else {
+                        return;
+                      }
+                    }
                   )}
-                    {media.overview && (
-                      <>
-                      <h2>Overview</h2>
-                      <p className="overview">{media.overview}</p>
-                      <br />
-                      <hr />
-                      <br />
-                      </>
-                    )}
-                    </div>
-                    {!isErrorProviders && !isLoadingProviders && (
-                      <div className='providers-container'>
-                        {Object.entries(responseProviders.data.results).map(
-                          (el, index) => {
-                            if (el[0] === "US") {
-                              providers = el[1];
-                            } else {
-                              return;
-                            }
-                          }
-                        )}
 
-                        {providers &&
-                            Object.entries(providers).map((provider, index) => {
-                              if (provider[0] !== "link" && provider[0] !== "buy") {
-                                return (
-                                  <Network
-                                  name={provider[1][0].provider_name}
-                                  logo={provider[1][0].logo_path}
-                                  api={api.POSTER}
-                                  key={index}
-                                />
-                                );
-                              } else {
-                                return;
-                              }
-                            })}
-                                </div>
-                    )}
-                                {media.homepage && (
-                                  <p className="homepage-link">
-                                    You can Visit the homepage{" "}
-                                    <a href={`${media.homepage}`}>here</a>
-                                  </p>
-                                )}{" "}
-                                </Body>
-
-                              </div> 
-        <div className="details-info">
-          {!isLoadingCredits && (
-            <>
-            <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
-            <Scroll paddingRight="1rem">
-              {credits.data.cast.map((cast, index) => {
-                if (index < 8)
-                  return (
-                    <Card
-                    key={cast.id}
-                    name={cast.name}
-                    api={api.POSTER}
-                    photo={cast.profile_path}
-                    character={cast.character}
-                  />
-                  );
-              })}
-                  </Scroll>
-            </>
-          )}
+                  {providers &&
+                    Object.entries(providers).map((provider, index) => {
+                      if (provider[0] !== "link" && provider[0] !== "buy") {
+                        return (
+                          <Network
+                            name={provider[1][0].provider_name}
+                            logo={provider[1][0].logo_path}
+                            api={api.POSTER}
+                            key={index}
+                          />
+                        );
+                      } else {
+                        return;
+                      }
+                    })}
+                </div>
+              )}
+              {media.homepage && (
+                <p className="homepage-link">
+                  You can Visit the homepage{" "}
+                  <a href={`${media.homepage}`}>here</a>
+                </p>
+              )}{" "}
+                </div>
+            </Body>
+          </div>
+          <div className="details-info">
+            {!isLoadingCredits && (
+              <>
+                <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
+                <Scroll paddingRight="1rem">
+                  {credits.data.cast.map((cast, index) => {
+                    if (index < 8)
+                      return (
+                        <Card
+                          key={cast.id}
+                          name={cast.name}
+                          api={api.POSTER}
+                          photo={cast.profile_path}
+                          character={cast.character}
+                        />
+                      );
+                  })}
+                </Scroll>
+              </>
+            )}
             {!isLoading && media.seasons && (
               <>
-              <hr />
-              <h3 style={{ marginLeft: "1rem" }}>Last season</h3>
-              <Season
-              name={media.seasons[media.seasons.length - 1].name}
-              airDate={media.seasons[media.seasons.length - 1].air_date}
-              episodeCount={
-                media.seasons[media.seasons.length - 1].episode_count
-              }
-              overview={media.seasons[media.seasons.length - 1].overview}
-            />
+                <hr />
+                <h3 style={{ marginLeft: "1rem" }}>Last season</h3>
+                <Season
+                  name={media.seasons[media.seasons.length - 1].name}
+                  airDate={media.seasons[media.seasons.length - 1].air_date}
+                  episodeCount={
+                    media.seasons[media.seasons.length - 1].episode_count
+                  }
+                  overview={media.seasons[media.seasons.length - 1].overview}
+                />
               </>
             )}
 
-              {/*
+            {/*
               {!isLoadingReviews && (
                 <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
                 )}
                 */}
 
-                <hr />
+            <hr />
 
-                <MediaVideos id={id} mediaType={mediaType} />
-                <Recomendation id={id} mediaType={mediaType} paddingRight="1rem" />
-        </div>
-                <Similar id={id} mediaType={mediaType} />
+            <MediaVideos id={id} mediaType={mediaType} />
+            <Recomendation id={id} mediaType={mediaType} paddingRight="1rem" />
+          </div>
+          <Similar id={id} mediaType={mediaType} />
           <Data>
             <h2 style={{ marginLeft: "1rem" }}>Data</h2>
             <h3>Original title</h3>
@@ -170,11 +189,23 @@ const Details = ({ mediaType, children }) => {
             <h3>Original language</h3>
             <span>{media.original_language}</span>
             <h3>Budget</h3>
-            <span>{media.budget ? new Intl.NumberFormat('ud-US', { style: 'currency', currency: 'USD'  }).format(media.budget) : '-'}</span>
+            <span>
+              {media.budget
+                ? new Intl.NumberFormat("ud-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(media.budget)
+                : "-"}
+            </span>
             <h3>Revenue</h3>
-            <span>{media.revenue ? new Intl.NumberFormat('ud-US', { style: 'currency', currency: 'USD'  }).format(media.revenue) : '-'}</span>
-            
-
+            <span>
+              {media.revenue
+                ? new Intl.NumberFormat("ud-US", {
+                    style: "currency",
+                    currency: "USD",
+                  }).format(media.revenue)
+                : "-"}
+            </span>
           </Data>
         </Container>
       )}

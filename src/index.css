@@ -51,10 +51,17 @@ img {
   }
 
   ::-webkit-scrollbar-thumb {
-    background-color: var(--dark-90); /* color of the scroll thumb */
+    background-color: var(--dark-80); /* color of the scroll thumb */
     border-radius: 20px; /* roundness of the scroll thumb */
     border: 3px solid transparent; /* creates padding around scroll thumb */
   }
+
+  .general-body-container ::-webkit-scrollbar-thumb {
+    background-color:red; /* color of the scroll thumb */
+    border-radius: 20px; /* roundness of the scroll thumb */
+    border: 3px solid transparent; /* creates padding around scroll thumb */
+  }
+
 }
 
 a {

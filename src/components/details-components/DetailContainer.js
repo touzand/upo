@@ -30,11 +30,10 @@ align-items:center;
 
     .providers-container {
       display: flex;
-      flex-direction: row;
+      flex-direction:column;
       justify-content: left;
 
       div {
-        background-color: transparent;
 
         * {
         }
@@ -44,7 +43,6 @@ align-items:center;
         }
 
         div:nth-child(2) {
-          display: none;
         }
       }
     }
@@ -57,6 +55,10 @@ align-items:center;
     align-items:left;
     justify-content:center;
 
+
+      ::-webkit-scrollbar-thumb{
+      background-color:red;
+      }
     }
 
   }

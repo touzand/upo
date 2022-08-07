@@ -18,6 +18,15 @@ background-color:#00000099;
 iframe{
 
 }
+
+@media (min-width:800px){
+
+iframe{
+width:715px;
+height:400px;
+}
+
+}
 `
 
 const YoutubeIframe =  () =>{

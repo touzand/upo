@@ -32,7 +32,7 @@ const HeaderContainer = styled.div`
   @media (min-width: 800px) {
   flex-grow:1;
   width:auto;
-  padding:0 5rem;
+  padding:0 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
