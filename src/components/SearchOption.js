@@ -14,6 +14,11 @@ width:100%;
 &:hover{
 background-color:var(--dark-70);
 }
+
+@media (min-width:800px){
+font-size:initial;
+}
+
 `
 
 const SearchOption = ( {props} ) =>(

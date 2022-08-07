@@ -11,7 +11,6 @@ const InputContainerVisible = keyframes`
 const SearchQueryContainer = styled.div`
   display: flex;
   flex-direction: column;
-  height: 100vh;
   background-color: var(--dark);
 `;
 
@@ -46,7 +45,6 @@ const InputContainer = styled.div`
 
   div {
     display: flex;
-    justify-content: space-between;
 
     button {
       width: 70px;
@@ -57,7 +55,6 @@ const InputContainer = styled.div`
     }
 
     div {
-      flex-grow: 1;
       background-color: var(--dark);
 
       i {
@@ -85,17 +82,35 @@ const InputContainer = styled.div`
   right:0;
   bottom:0;
   display:flex;
-  justify-content:center;
+  justify-content:start;
   align-items:center;
   animation: ${InputContainerVisible} 1s ease both;
   padding:4rem 0 ;
 
   div{
-  width:400px;
+  width:500px;
   position:relative;
+
   }
 
+  .padding{
+  height:400px;
+  display:flex;
+  flex-direction:column;
+  }
 
+  hr{
+  display:none;
+  }
+  }
+
+  .input-container{
+    padding:.5rem;
+
+  }
+
+  .input-top-container{
+    height:40px;
   }
 
   div:nth-child(2){
@@ -128,7 +143,7 @@ const SearchInput = (props) => {
     <InputContainer>
       <div className='bg'>
       <div className="input-container">
-        <div>
+        <div className="input-top-container">
           <i className="bi bi-search"></i>
           <input
             type="text"
@@ -140,7 +155,7 @@ const SearchInput = (props) => {
         <button onClick={() => props.setInputVisible(false)}>Cancel</button>
       </div>
       <hr />
-      <SearchQueryContainer>
+      <SearchQueryContainer className='query'>
         {queryOpctions.map((propis) => (
           <SearchOption
             props={propis}
