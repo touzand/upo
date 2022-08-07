@@ -19,7 +19,7 @@ const Container = styled.div`
 `
 
 const SimilarScroll = styled.div`
-  width: 100%;
+  width: 100vw;
   display: flex;
   overflow: hidden;
   overflow-x: scroll;

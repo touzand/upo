@@ -4,6 +4,7 @@ import Scroll from "../components/main-components/Scroll";
 import { api } from "../services/api";
 import Loader from "../components/Loader";
 import '../index.css'
+import Menu from '../components/NavMenu'
 
 const HomeContainer = styled.div`
   color: whitesmoke;
@@ -39,6 +40,7 @@ const Home = props => (
     <Scroll endPoint={api.MOVIE_TRENDINGS} mediaType="movie">
       <h2><span>- </span>Trending movies</h2>
     </Scroll>
+
   </HomeContainer>
 );
 export default Home;

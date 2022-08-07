@@ -53,6 +53,16 @@ background-color:#0009;
 @media (min-width:800px){
 flex-grow:2;
 
+article{
+justify-content:left;
+}
+
+.providers-container{
+justify-content:left;
+gap:1rem;
+
+}
+
 .cristal{
 }
 

@@ -4,6 +4,7 @@ const CreditCard = styled.div`
 margin-left:1rem;
 background-color:#0003;
 border-radius:1rem;
+width:125px;
 
 .text-content{
 padding:1rem;

@@ -4,6 +4,7 @@ import "../../index.css";
 const DetailContainer = styled.div`
   background-color: white;
   color: var(--dark);
+  overflow-y:hidden;
 
   article {
     span {
@@ -15,24 +16,31 @@ const DetailContainer = styled.div`
   }
 
   @media (min-width: 800px) {
+display:flex;
+flex-direction:column;
+  justify-content:center;
+align-items:center;
+
     .general-body-container {
       display: flex;
+      min-height:500px;
+      max-height:auto;
+
     }
 
- 
     .providers-container {
-      display:flex;
+      display: flex;
       flex-direction: row;
-      justify-content:space-evenly;
+      justify-content: left;
 
       div {
         background-color: transparent;
 
-        *{
+        * {
         }
 
-        img{
-        width:70px !important;
+        img {
+          width: 70px !important;
         }
 
         div:nth-child(2) {
@@ -40,6 +48,17 @@ const DetailContainer = styled.div`
         }
       }
     }
+
+    .details-info{
+    max-width:900px;
+    min-width:auto;
+    display:flex;
+    flex-direction:column;
+    align-items:left;
+    justify-content:center;
+
+    }
+
   }
 `;
 

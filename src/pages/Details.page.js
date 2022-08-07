@@ -113,51 +113,54 @@ const Details = ({ mediaType, children }) => {
                                 )}{" "}
                                 </Body>
 
-        </div>          {!isLoadingCredits && (
+                              </div> 
+        <div className="details-info">
+          {!isLoadingCredits && (
             <>
-              <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
-              <Scroll paddingRight="1rem">
-                {credits.data.cast.map((cast, index) => {
-                  if (index < 8)
-                    return (
-                      <Card
-                        key={cast.id}
-                        name={cast.name}
-                        api={api.POSTER}
-                        photo={cast.profile_path}
-                        character={cast.character}
-                      />
-                    );
-                })}
-              </Scroll>
+            <h3 style={{ marginLeft: "1rem" }}>Main cast</h3>
+            <Scroll paddingRight="1rem">
+              {credits.data.cast.map((cast, index) => {
+                if (index < 8)
+                  return (
+                    <Card
+                    key={cast.id}
+                    name={cast.name}
+                    api={api.POSTER}
+                    photo={cast.profile_path}
+                    character={cast.character}
+                  />
+                  );
+              })}
+                  </Scroll>
             </>
           )}
-          {!isLoading && media.seasons && (
-            <>
+            {!isLoading && media.seasons && (
+              <>
               <hr />
               <h3 style={{ marginLeft: "1rem" }}>Last season</h3>
               <Season
-                name={media.seasons[media.seasons.length - 1].name}
-                airDate={media.seasons[media.seasons.length - 1].air_date}
-                episodeCount={
-                  media.seasons[media.seasons.length - 1].episode_count
-                }
-                overview={media.seasons[media.seasons.length - 1].overview}
-              />
-            </>
-          )}
+              name={media.seasons[media.seasons.length - 1].name}
+              airDate={media.seasons[media.seasons.length - 1].air_date}
+              episodeCount={
+                media.seasons[media.seasons.length - 1].episode_count
+              }
+              overview={media.seasons[media.seasons.length - 1].overview}
+            />
+              </>
+            )}
 
-          {/*
+              {/*
               {!isLoadingReviews && (
                 <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
                 )}
                 */}
 
-          <hr />
+                <hr />
 
-          <MediaVideos id={id} mediaType={mediaType} />
-          <Recomendation id={id} mediaType={mediaType} paddingRight="1rem" />
-          <Similar id={id} mediaType={mediaType} />
+                <MediaVideos id={id} mediaType={mediaType} />
+                <Recomendation id={id} mediaType={mediaType} paddingRight="1rem" />
+        </div>
+                <Similar id={id} mediaType={mediaType} />
           <Data>
             <h2 style={{ marginLeft: "1rem" }}>Data</h2>
             <h3>Original title</h3>
