@@ -23,6 +23,11 @@ const InputContainer = styled.div`
   background-color: var(--dark);
   animation: ${InputContainerVisible} 1s ease both;
 
+  .bg{
+  display:flex;
+  flex-direction:column;
+  }
+
   hr{
   border:thin solid grey;
   }
@@ -70,8 +75,32 @@ const InputContainer = styled.div`
   }
 
   @media(min-width: 800px){
+  .bg{
+  display:flex;
+  flex-direction:column;
+  background-color:#0009;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  animation: ${InputContainerVisible} 1s ease both;
+  padding:4rem 0 ;
+
+  div{
   width:400px;
-  position:absolute;
+  position:relative;
+  }
+
+
+  }
+
+  div:nth-child(2){
+
+  }
  }
 `;
 
@@ -97,6 +126,7 @@ const SearchInput = (props) => {
 
   return (
     <InputContainer>
+      <div className='bg'>
       <div className="input-container">
         <div>
           <i className="bi bi-search"></i>
@@ -120,6 +150,7 @@ const SearchInput = (props) => {
           />
         ))}
       </SearchQueryContainer>
+      </div>
     </InputContainer>
   );
 };
