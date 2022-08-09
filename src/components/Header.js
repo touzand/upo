@@ -7,8 +7,7 @@ import "../index.css";
 
 const HeaderContainer = styled.header`
   text-align: left;
-  background-image:linear-gradient(to top,var(--dark),#2228),url( ${(props) =>
-    props.api}${(props) => props.backgroundPath} );
+  background-image:linear-gradient(to top,var(--dark),#2228),url( ${(props) =>props.api}${(props) => props.backgroundPath} );
   color:white;
   font-weight:bold;
   background-size: cover;

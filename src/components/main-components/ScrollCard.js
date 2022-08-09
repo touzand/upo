@@ -44,6 +44,7 @@ mix-blend-mode:luminosity;
 .img-bg{
       background-color:var(--primal-color);
       border-radius:.25rem;
+      margin-bottom:.25rem;
 
 }
 
@@ -69,7 +70,7 @@ mix-blend-mode:luminosity;
   span{
   color:var(--dark) !important;
   font-weight:bold;
-background-image:linear-gradient(to right,var(--dark-70),var(--dark)) !important;
+background-image:linear-gradient(to right,#f3ce13,var(--dark)) !important;
 
       }
     }

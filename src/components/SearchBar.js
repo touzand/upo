@@ -1,7 +1,7 @@
+import { useState } from "react";
 import styled, { keyframes } from "styled-components";
-import { useState, useEffect } from "react";
 import SearchOption from "./SearchOption";
-import '../index.css'
+import "../index.css";
 
 const InputContainerVisible = keyframes`
 0%{top:90vh}
@@ -22,24 +22,24 @@ const InputContainer = styled.div`
   background-color: var(--dark);
   animation: ${InputContainerVisible} 1s ease both;
 
-  .bg{
-  display:flex;
-  flex-direction:column;
+  .bg {
+    display: flex;
+    flex-direction: column;
   }
 
-  hr{
-  border:thin solid grey;
+  hr {
+    border: thin solid grey;
   }
 
   .input-container {
     & * {
       font-size: 1rem;
-      color:grey;
+      color: grey;
     }
     div {
       padding: 0.5rem;
       border-radius: 0.5rem;
-  background-color: var(--dark-70);
+      background-color: var(--dark-70);
     }
   }
 
@@ -71,52 +71,49 @@ const InputContainer = styled.div`
     }
   }
 
-  @media(min-width: 800px){
-  .bg{
-  display:flex;
-  flex-direction:column;
-  background-color:#0009;
-  position:fixed;
-  top:0;
-  left:0;
-  right:0;
-  bottom:0;
-  display:flex;
-  justify-content:start;
-  align-items:center;
-  animation: ${InputContainerVisible} 1s ease both;
-  padding:4rem 0 ;
+  @media (min-width: 800px) {
+    .bg {
+      display: flex;
+      flex-direction: column;
+      background-color: #ddd5;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      animation: ${InputContainerVisible} 1s ease both;
+      padding: 4rem 0;
 
-  div{
-  width:500px;
-  position:relative;
+      div {
+        width: 500px;
+        position: relative;
+      }
 
+      .padding {
+        height: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      hr {
+        display: none;
+      }
+    }
+
+    .input-container {
+      padding: 0.5rem;
+    }
+
+    .input-top-container {
+      height: 40px;
+    }
+
+    div:nth-child(2) {
+    }
   }
-
-  .padding{
-  height:400px;
-  display:flex;
-  flex-direction:column;
-  }
-
-  hr{
-  display:none;
-  }
-  }
-
-  .input-container{
-    padding:.5rem;
-
-  }
-
-  .input-top-container{
-    height:40px;
-  }
-
-  div:nth-child(2){
-
-  }
- }
 `;
 
 const SearchInput = (props) => {
@@ -141,30 +138,30 @@ const SearchInput = (props) => {
 
   return (
     <InputContainer>
-      <div className='bg'>
-      <div className="input-container">
-        <div className="input-top-container">
-          <i className="bi bi-search"></i>
-          <input
-            type="text"
-            placeholder="Search..."
-            autoFocus
-            onChange={HandleSearch}
-          />
+      <div className="bg" onClick={() => props.setInputVisible(false)}>
+        <div className="input-container">
+          <div className="input-top-container">
+            <i className="bi bi-search"></i>
+            <input
+              type="text"
+              placeholder="Search..."
+              autoFocus
+              onChange={HandleSearch}
+            />
+          </div>
+          <button onClick={() => props.setInputVisible(false)}>Cancel</button>
         </div>
-        <button onClick={() => props.setInputVisible(false)}>Cancel</button>
-      </div>
-      <hr />
-      <SearchQueryContainer className='query'>
-        {queryOpctions.map((propis) => (
-          <SearchOption
-            props={propis}
-            key={propis.id}
-            setInputVisible={props.setInputVisible}
-            inputVisible={props.inputVisible}
-          />
-        ))}
-      </SearchQueryContainer>
+        <hr />
+        <SearchQueryContainer className="query">
+          {queryOpctions.map((propis) => (
+            <SearchOption
+              props={propis}
+              key={propis.id}
+              setInputVisible={props.setInputVisible}
+              inputVisible={props.inputVisible}
+            />
+          ))}
+        </SearchQueryContainer>
       </div>
     </InputContainer>
   );
