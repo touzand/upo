@@ -28,9 +28,9 @@ const MenuContainer = styled.div`
   li > ul {
     display: none;
   }
-    li > ul > li {
-    padding:0;
-    }
+  li > ul > li {
+    padding: 0;
+  }
 
   li:hover {
     background-color: var(--primal-color);
@@ -48,19 +48,19 @@ const MenuContainer = styled.div`
   }
 
   @media (min-width: 800px) {
-  left:initial;
+    left: initial;
     width: auto;
     animation: initial;
 
     ul {
-    display:flex;
+      display: flex;
       padding: 0;
       margin: 0;
     }
 
     li {
       list-style: none;
-      background-color:transparent;
+      background-color: transparent;
     }
 
     li > ul {
@@ -76,7 +76,7 @@ const MenuContainer = styled.div`
     }
 
     div {
-    display:none;
+      display: none;
     }
   }
 `;
@@ -85,7 +85,9 @@ const Menu = (props) => {
   return (
     <MenuContainer>
       <ul>
-        <li><a href='/'>Home</a></li>
+        <li>
+          <a href="/">Home</a>
+        </li>
         <li>Movies</li>
         <li>Series</li>
         <li>

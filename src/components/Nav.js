@@ -31,9 +31,6 @@ const NavContainer = styled.nav`
     display: none;
   }
 
-  .movile-navigation {
-  }
-
   @media (min-width: 800px) {
     justify-content: space-between;
 

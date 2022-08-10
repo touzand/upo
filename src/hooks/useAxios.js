@@ -1,7 +1,7 @@
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { API_ENDPOINT } from "../services/api.js";
 import axios from "axios";
-import {useEffectOnce} from './useEffectOnce.js'
+import { useEffectOnce } from "./useEffectOnce.js";
 
 const useAxios = (configParams) => {
   axios.defaults.baseURL = API_ENDPOINT;

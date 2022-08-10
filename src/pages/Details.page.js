@@ -72,65 +72,65 @@ const Details = ({ mediaType, children }) => {
                     <hr />
                   </div>
                 )}
+              </div>
+              <div className="body-desktop-version">
+                <article>
+                  {media.genres.map((genre, index) => (
+                    <span key={genre.id}>{genre.name}</span>
+                  ))}
+                </article>
+                <div className="cristal overview-mobile">
+                  {media.tagline && (
+                    <blockquote className="tagname">
+                      " {media.tagline}"
+                    </blockquote>
+                  )}
+                  {media.overview && (
+                    <div className="overview-mobile">
+                      <h2>Overview</h2>
+                      <p className="overview">{media.overview}</p>
+                      <br />
+                      <hr />
+                      <br />
+                    </div>
+                  )}
                 </div>
-                <div className='body-desktop-version'>
-              <article>
-                {media.genres.map((genre, index) => (
-                  <span key={genre.id}>{genre.name}</span>
-                ))}
-              </article>
-              <div className="cristal overview-mobile">
-                {media.tagline && (
-                  <blockquote className="tagname">
-                    " {media.tagline}"
-                  </blockquote>
-                )}
-                {media.overview && (
-                  <div className="overview-mobile">
-                    <h2>Overview</h2>
-                    <p className="overview">{media.overview}</p>
-                    <br />
-                    <hr />
-                    <br />
+                {!isErrorProviders && !isLoadingProviders && (
+                  <div className="providers-container">
+                    {Object.entries(responseProviders.data.results).map(
+                      (el, index) => {
+                        if (el[0] === "US") {
+                          providers = el[1];
+                        } else {
+                          return;
+                        }
+                      }
+                    )}
+
+                    {providers &&
+                      Object.entries(providers).map((provider, index) => {
+                        if (provider[0] !== "link" && provider[0] !== "buy") {
+                          return (
+                            <Network
+                              name={provider[1][0].provider_name}
+                              logo={provider[1][0].logo_path}
+                              api={api.POSTER}
+                              key={index}
+                            />
+                          );
+                        } else {
+                          return;
+                        }
+                      })}
                   </div>
                 )}
+                {media.homepage && (
+                  <p className="homepage-link">
+                    You can Visit the homepage{" "}
+                    <a href={`${media.homepage}`}>here</a>
+                  </p>
+                )}{" "}
               </div>
-              {!isErrorProviders && !isLoadingProviders && (
-                <div className="providers-container">
-                  {Object.entries(responseProviders.data.results).map(
-                    (el, index) => {
-                      if (el[0] === "US") {
-                        providers = el[1];
-                      } else {
-                        return;
-                      }
-                    }
-                  )}
-
-                  {providers &&
-                    Object.entries(providers).map((provider, index) => {
-                      if (provider[0] !== "link" && provider[0] !== "buy") {
-                        return (
-                          <Network
-                            name={provider[1][0].provider_name}
-                            logo={provider[1][0].logo_path}
-                            api={api.POSTER}
-                            key={index}
-                          />
-                        );
-                      } else {
-                        return;
-                      }
-                    })}
-                </div>
-              )}
-              {media.homepage && (
-                <p className="homepage-link">
-                  You can Visit the homepage{" "}
-                  <a href={`${media.homepage}`}>here</a>
-                </p>
-              )}{" "}
-                </div>
             </Body>
           </div>
           <div className="details-info">
