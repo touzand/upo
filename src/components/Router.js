@@ -4,6 +4,7 @@ import Home from "../pages/Home.page";
 import Nav from "./Nav";
 import Details from "../pages/Details.page";
 import YoutubeIframe from "./details-components/YoutubeIframe";
+import WithGenreList from '../pages/WithGenreList'
 
 const Router = () => {
   const [inputVisible, setInputVisible] = useState(false);
@@ -19,6 +20,16 @@ const Router = () => {
               setInputVisible={setInputVisible}
             />
           }
+        />
+        <Route
+        path="upo/genre/:genre"
+          exat
+          element={<WithGenreList mediaType="movie" />}
+        />
+        <Route
+        path="upo/genre/:genre"
+          exat
+          element={<WithGenreList mediaType="tv" />}
         />
         <Route
           path="upo/movie/:id"

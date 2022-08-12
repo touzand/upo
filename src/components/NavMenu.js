@@ -1,10 +1,32 @@
 import styled, { keyframes } from "styled-components";
 import "../index.css";
+import useAxios from '../hooks/useAxios'
+import {API_KEY} from '../services/api.js'
+
 
 const MenuSlide = keyframes`
 0%{left:100%}
 100%{left:0}
 `;
+
+const GenresContainer = styled.div`
+
+h4{
+margin-bottom:.5rem;
+}
+
+& ul li{
+background-color:var(--primal-color);
+padding:0;
+
+a{
+text-align:left;
+font-weight:bold;
+color:#0006;
+display:inline;
+}
+}
+`
 
 const MenuContainer = styled.div`
   position: absolute;
@@ -32,13 +54,14 @@ const MenuContainer = styled.div`
     padding: 0;
   }
 
-  li:hover {
-    background-color: var(--primal-color);
+    li:hover {
+      background-color: var(--primal-color);
 
-    ul {
-      display: initial;
+      div {
+        display: initial;
+        }
+      }
     }
-  }
 
   div {
     background-color: #0009;
@@ -70,8 +93,9 @@ const MenuContainer = styled.div`
     li:hover {
       background-color: var(--primal-color);
 
-      ul {
+      div {
         display: initial;
+        }
       }
     }
 
@@ -82,6 +106,17 @@ const MenuContainer = styled.div`
 `;
 
 const Menu = (props) => {
+
+  const [movieGenres, movieisError, movieisLoading] = useAxios({
+    url: `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`,
+    method: "get",
+  });
+
+  const [tvGenres, tvisError, tvisLoading] = useAxios({
+    url: `https://api.themoviedb.org/3/genre/tv/list?api_key=${API_KEY}&language=en-US`,
+    method: "get",
+  });
+
   return (
     <MenuContainer>
       <ul>
@@ -92,14 +127,20 @@ const Menu = (props) => {
         <li>Series</li>
         <li>
           Genres
-          <ul>
-            <li>genero</li>
-            <li>genero</li>
-            <li>genero</li>
-            <li>genero</li>
-            <li>genero</li>
-            <li>genero</li>
-          </ul>
+          <GenresContainer>
+            <div>
+              <h4>Movies</h4>
+              <ul>
+                {!movieisLoading && movieGenres.data.genres.map(genre=><li><a href={`upo/genre/${genre.id}` }>{genre.name}</a></li>)}
+              </ul>
+            </div>
+            <div>
+              <h4>Series</h4>
+              <ul>
+                {!tvisLoading && tvGenres.data.genres.map(genre=><li><a href={`upo/genre/${genre.id}` }>{genre.name}</a></li>)}
+              </ul>
+            </div>
+          </GenresContainer>
         </li>
         <li>Information</li>
       </ul>
