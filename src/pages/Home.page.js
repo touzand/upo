@@ -26,19 +26,19 @@ const Home = props => (
     <Header endPoint={api.MOVIE_POPULAR_LIST}  inputVisible={props.inputVisible} setInputVisible={props.setInputVisible}/>
     {/*<Loader/>*/}
     <Scroll endPoint={api.MOVIE_POPULAR_LIST} mediaType="movie">
-      <h2><span>- </span>Top movies</h2>
+      <h2>Top movies</h2>
     </Scroll>
     <Scroll endPoint={api.TV_POPULAR_LIST} mediaType="tv">
-      <h2><span>- </span>Top series and TV shows</h2>
+      <h2>Top series and TV shows</h2>
     </Scroll>
     <Scroll endPoint={api.MOVIE_UPCOMING} mediaType="movie">
-      <h2><span>- </span>Upcoming movies</h2>
+      <h2>Upcoming movies</h2>
     </Scroll>
     <Scroll endPoint={api.TV_TRENDINGS} mediaType="tv">
-      <h2><span>- </span>Trending tv and series</h2>
+      <h2>Trending tv and series</h2>
     </Scroll>
     <Scroll endPoint={api.MOVIE_TRENDINGS} mediaType="movie">
-      <h2><span>- </span>Trending movies</h2>
+      <h2>Trending movies</h2>
     </Scroll>
 
   </HomeContainer>

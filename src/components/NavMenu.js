@@ -1,8 +1,7 @@
 import styled, { keyframes } from "styled-components";
 import "../index.css";
-import useAxios from '../hooks/useAxios'
-import {API_KEY} from '../services/api.js'
-
+import useAxios from "../hooks/useAxios";
+import { API_KEY } from "../services/api.js";
 
 const MenuSlide = keyframes`
 0%{left:100%}
@@ -10,23 +9,30 @@ const MenuSlide = keyframes`
 `;
 
 const GenresContainer = styled.div`
+  display: flex;
 
-h4{
-margin-bottom:.5rem;
-}
+  h4 {
+    margin-bottom: 0.5rem;
+  }
 
-& ul li{
-background-color:var(--primal-color);
-padding:0;
+  a {
+    text-align: left !important;
+    font-weight: bold !important;
+    color: #0008 !important;
+    display: inline-block !important;
+    border-radius: 0.25rem !important;
+    border: solid thin #0008 !important;
+    padding: 0.5rem !important;
+    margin: 0.2rem !important;
+  }
 
-a{
-text-align:left;
-font-weight:bold;
-color:#0006;
-display:inline;
-}
-}
-`
+  @media (min-width:800px){
+  div{
+
+  width:200px !important;
+  }
+  }
+`;
 
 const MenuContainer = styled.div`
   position: absolute;
@@ -34,7 +40,9 @@ const MenuContainer = styled.div`
   left: 0;
   top: 0;
   width: 100%;
+  background-color:transparent;
   animation: ${MenuSlide} 0.5s ease both;
+  position:fixed;
 
   ul {
     padding: 0;
@@ -106,7 +114,6 @@ const MenuContainer = styled.div`
 `;
 
 const Menu = (props) => {
-
   const [movieGenres, movieisError, movieisLoading] = useAxios({
     url: `https://api.themoviedb.org/3/genre/movie/list?api_key=${API_KEY}&language=en-US`,
     method: "get",
@@ -131,13 +138,10 @@ const Menu = (props) => {
             <div>
               <h4>Movies</h4>
               <ul>
-                {!movieisLoading && movieGenres.data.genres.map(genre=><li><a href={`upo/genre/${genre.id}` }>{genre.name}</a></li>)}
-              </ul>
-            </div>
-            <div>
-              <h4>Series</h4>
-              <ul>
-                {!tvisLoading && tvGenres.data.genres.map(genre=><li><a href={`upo/genre/${genre.id}` }>{genre.name}</a></li>)}
+                {!movieisLoading &&
+                  movieGenres.data.genres.map((genre) => (
+                    <a href={`/upo/genre/${genre.id}`}>{genre.name}</a>
+                  ))}
               </ul>
             </div>
           </GenresContainer>
