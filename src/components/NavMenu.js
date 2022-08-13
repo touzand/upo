@@ -9,47 +9,34 @@ const MenuSlide = keyframes`
 `;
 
 const GenresContainer = styled.div`
+    background-color:var(--primal-color);
+    width:400px;
+    height:300px;
+    top:34px;
+    border-radius:1rem;
+    left:4rem;
 
-
-  div{
-  }
-
-  * a {
-    display: none;
-    text-align: left;
-    font-weight: bold;
-    color: #0008 !important;
-    display: inline;
-    border-radius: 0.25rem;
-    border: solid thin #0008;
-    padding: 0.5rem;
-    margin: 0.2rem;
-
-    &:hover{
-    background-color:white;
-    border:thin solid white;
-    }
-  }
-
-  @media (min-width: 800px) {
-
-    div{
     a{
-        font-size: 0.8rem;
-        display: inline-block;
-      }
- }    }
-  }
+    }
+
+    a:hover{
+    background-color:white;
+    color:var(--primal-color);
+    
+    }
 `;
 
 const MenuContainer = styled.div`
+  background-color: #151515;
   position: absolute;
   z-index: 2;
-  left: 0;
-  top: 0;
+  top: 60px;
   width: 100%;
-  background-color:transparent;
-  animation: ${MenuSlide} 0.5s ease both;
+  height: 100vh;
+
+  li {
+    text-align: center;
+  }
 
   ul {
     padding: 0;
@@ -57,64 +44,40 @@ const MenuContainer = styled.div`
   }
 
   li {
+    margin: 0;
     list-style: none;
-    background-color: var(--dark-90);
     padding: 1rem;
-  }
 
-  li > ul {
-    display: none;
-  }
-  li > ul > li {
-    padding: 0;
-  }
-
-    li:hover {
+    &:hover {
       background-color: var(--primal-color);
 
       div {
-        display: initial;
-        }
+        padding: 1rem;
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
       }
     }
+    div {
+      display: none;
+    }
+  }
 
-  div {
-    height: 100vh;
-    width: 100vw;
-    backdrop-filter: blur(0.5rem);
+  a {
+    display: inline-block;
   }
 
   @media (min-width: 800px) {
-    left: initial;
-    width: auto;
-    animation: initial;
+    top:1rem;
+    display: flex;
+    background-color: transparent;
 
-    ul {
-      display: flex;
-      padding: 0;
-      margin: 0;
+    div{
+    position:absolute;
     }
 
     li {
-      list-style: none;
-      background-color: transparent;
-    }
-
-    li > ul {
-      display: none;
-    }
-
-    li:hover {
-
-      div {
-        height:300px;
-        width:500px;
-        }
-      }
-    }
-
-    div {
-      display: none;
+      display: inline;
     }
   }
 `;
@@ -132,26 +95,33 @@ const Menu = (props) => {
 
   return (
     <MenuContainer>
-      <ul>
-        <li>
-          <a href="/">Home</a>
-        </li>
-        <li>Movies</li>
-        <li>Series</li>
-        <li>
-          Genres
-          <GenresContainer>
-            <div>
-              {!movieisLoading &&
-                movieGenres.data.genres.map((genre) => (
-                  <a href={`/upo/genre/${genre.id}`}>{genre.name}</a>
-                ))}
-            </div>
-          </GenresContainer>
-        </li>
-        <li>Information</li>
-      </ul>
-      <div onClick={() => props.setVisible(false)}></div>
+      <div onClick={() => props.setVisible(false)}>
+        <ul>
+          <li>
+            <a href="/">Home</a>
+          </li>
+          <li>
+            <a href="/">Movies</a>
+          </li>
+          <li>
+            <a href="/">Series and tv shows</a>
+          </li>
+          <li>
+            Genres
+            <GenresContainer>
+              <div>
+                {!movieisLoading &&
+                  movieGenres.data.genres.map((genre) => (
+                    <a href={`/upo/genre/${genre.id}`}>{genre.name}</a>
+                  ))}
+              </div>
+            </GenresContainer>
+          </li>
+          <li>
+            <a href="/">Information</a>
+          </li>
+        </ul>
+      </div>
     </MenuContainer>
   );
 };
