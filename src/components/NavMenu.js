@@ -9,28 +9,36 @@ const MenuSlide = keyframes`
 `;
 
 const GenresContainer = styled.div`
-  display: flex;
 
-  h4 {
-    margin-bottom: 0.5rem;
-  }
 
-  a {
-    text-align: left !important;
-    font-weight: bold !important;
-    color: #0008 !important;
-    display: inline-block !important;
-    border-radius: 0.25rem !important;
-    border: solid thin #0008 !important;
-    padding: 0.5rem !important;
-    margin: 0.2rem !important;
-  }
-
-  @media (min-width:800px){
   div{
-
-  width:200px !important;
   }
+
+  * a {
+    display: none;
+    text-align: left;
+    font-weight: bold;
+    color: #0008 !important;
+    display: inline;
+    border-radius: 0.25rem;
+    border: solid thin #0008;
+    padding: 0.5rem;
+    margin: 0.2rem;
+
+    &:hover{
+    background-color:white;
+    border:thin solid white;
+    }
+  }
+
+  @media (min-width: 800px) {
+
+    div{
+    a{
+        font-size: 0.8rem;
+        display: inline-block;
+      }
+ }    }
   }
 `;
 
@@ -42,7 +50,6 @@ const MenuContainer = styled.div`
   width: 100%;
   background-color:transparent;
   animation: ${MenuSlide} 0.5s ease both;
-  position:fixed;
 
   ul {
     padding: 0;
@@ -72,7 +79,6 @@ const MenuContainer = styled.div`
     }
 
   div {
-    background-color: #0009;
     height: 100vh;
     width: 100vw;
     backdrop-filter: blur(0.5rem);
@@ -99,10 +105,10 @@ const MenuContainer = styled.div`
     }
 
     li:hover {
-      background-color: var(--primal-color);
 
       div {
-        display: initial;
+        height:300px;
+        width:500px;
         }
       }
     }
@@ -136,13 +142,10 @@ const Menu = (props) => {
           Genres
           <GenresContainer>
             <div>
-              <h4>Movies</h4>
-              <ul>
-                {!movieisLoading &&
-                  movieGenres.data.genres.map((genre) => (
-                    <a href={`/upo/genre/${genre.id}`}>{genre.name}</a>
-                  ))}
-              </ul>
+              {!movieisLoading &&
+                movieGenres.data.genres.map((genre) => (
+                  <a href={`/upo/genre/${genre.id}`}>{genre.name}</a>
+                ))}
             </div>
           </GenresContainer>
         </li>
