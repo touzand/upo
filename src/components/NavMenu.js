@@ -9,21 +9,25 @@ const MenuSlide = keyframes`
 `;
 
 const GenresContainer = styled.div`
-    background-color:var(--primal-color);
-    width:400px;
-    height:300px;
-    top:34px;
-    border-radius:1rem;
-    left:4rem;
+  background-color: var(--primal-color);
+  height: 230px;
+  top: 34px;
+  border-radius: 1rem;
+  left: 4rem;
 
-    a{
-    }
+  a { display: inline-block;
+          padding:.5rem;
+          border-radius:.25rem;
+  }
 
-    a:hover{
-    background-color:white;
-    color:var(--primal-color);
-    
-    }
+  a:hover {
+    background-color: white;
+    color: var(--primal-color);
+  }
+
+  @media (min-width:800px){
+  width: 400px;
+  }
 `;
 
 const MenuContainer = styled.div`
@@ -41,6 +45,7 @@ const MenuContainer = styled.div`
   ul {
     padding: 0;
     margin: 0;
+    height:60px;
   }
 
   li {
@@ -54,8 +59,9 @@ const MenuContainer = styled.div`
       div {
         padding: 1rem;
         display: flex;
-        gap: 1rem;
         flex-wrap: wrap;
+        justify-content:center;
+        align-items:center;
       }
     }
     div {
@@ -63,17 +69,37 @@ const MenuContainer = styled.div`
     }
   }
 
-  a {
-    display: inline-block;
-  }
 
   @media (min-width: 800px) {
-    top:1rem;
+    top: 1rem;
     display: flex;
     background-color: transparent;
 
-    div{
-    position:absolute;
+    div {
+      top: -1rem;
+      position: absolute;
+
+      div {
+        top: 3rem;
+        display: none;
+        align-items: center;
+        justify-content: center;
+
+        div {
+          top:0;
+          margin-top: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+        }
+      }
+    }
+
+    ul {
+      display: flex;
+          align-items: center;
+        
     }
 
     li {
@@ -95,7 +121,7 @@ const Menu = (props) => {
 
   return (
     <MenuContainer>
-      <div onClick={() => props.setVisible(false)}>
+      <div>
         <ul>
           <li>
             <a href="/">Home</a>
