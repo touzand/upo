@@ -12,6 +12,10 @@ const SearchQueryContainer = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--dark);
+
+  div{
+  height:initial !important;
+  }
 `;
 
 const InputContainer = styled.div`
@@ -29,6 +33,7 @@ const InputContainer = styled.div`
 
   hr {
     border: thin solid grey;
+    opacity:0;
   }
 
   .input-container {
@@ -37,6 +42,7 @@ const InputContainer = styled.div`
       color: grey;
     }
     div {
+    width:100%;
       padding: 0.5rem;
       border-radius: 0.5rem;
       background-color: var(--dark-70);
@@ -52,6 +58,12 @@ const InputContainer = styled.div`
       background-color: transparent;
       outline: none;
       cursor: pointer;
+    }
+
+
+    div:nth-child(3){
+    height:100vh;
+
     }
 
     div {
@@ -75,7 +87,7 @@ const InputContainer = styled.div`
     .bg {
       display: flex;
       flex-direction: column;
-      background-color: #ddd5;
+      background-color: #15151599;
       position: fixed;
       top: 0;
       left: 0;
@@ -86,6 +98,7 @@ const InputContainer = styled.div`
       align-items: center;
       animation: ${InputContainerVisible} 1s ease both;
       padding: 4rem 0;
+      backdrop-filter:blur(1rem);
 
       div {
         width: 500px;

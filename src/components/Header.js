@@ -30,6 +30,7 @@ const HeaderContainer = styled.header`
   background-color:var(--primal-color);
   border:none;
   color:white;
+  cursor:pointer;
   }
 
   div{

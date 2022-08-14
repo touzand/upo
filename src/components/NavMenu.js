@@ -2,6 +2,7 @@ import styled, { keyframes } from "styled-components";
 import "../index.css";
 import useAxios from "../hooks/useAxios";
 import { API_KEY } from "../services/api.js";
+import {Link} from 'react-router-dom'
 
 const MenuSlide = keyframes`
 0%{left:100%}
@@ -15,9 +16,10 @@ const GenresContainer = styled.div`
   border-radius: 1rem;
   left: 4rem;
 
-  a { display: inline-block;
-          padding:.5rem;
-          border-radius:.25rem;
+  a {
+    display: inline-block;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
   }
 
   a:hover {
@@ -25,8 +27,8 @@ const GenresContainer = styled.div`
     color: var(--primal-color);
   }
 
-  @media (min-width:800px){
-  width: 400px;
+  @media (min-width: 800px) {
+    width: 400px;
   }
 `;
 
@@ -37,6 +39,8 @@ const MenuContainer = styled.div`
   top: 60px;
   width: 100%;
   height: 100vh;
+  animation:${MenuSlide} 1s ease both;
+
 
   li {
     text-align: center;
@@ -45,7 +49,7 @@ const MenuContainer = styled.div`
   ul {
     padding: 0;
     margin: 0;
-    height:60px;
+    height: 60px;
   }
 
   li {
@@ -60,8 +64,8 @@ const MenuContainer = styled.div`
         padding: 1rem;
         display: flex;
         flex-wrap: wrap;
-        justify-content:center;
-        align-items:center;
+        justify-content: center;
+        align-items: center;
       }
     }
     div {
@@ -69,11 +73,12 @@ const MenuContainer = styled.div`
     }
   }
 
-
   @media (min-width: 800px) {
+  height:initial;
     top: 1rem;
     display: flex;
     background-color: transparent;
+  animation:initial;
 
     div {
       top: -1rem;
@@ -86,20 +91,18 @@ const MenuContainer = styled.div`
         justify-content: center;
 
         div {
-          top:0;
+          top: 0;
           margin-top: 1rem;
           display: flex;
           align-items: center;
           justify-content: center;
-
         }
       }
     }
 
     ul {
       display: flex;
-          align-items: center;
-        
+      align-items: center;
     }
 
     li {
@@ -137,8 +140,8 @@ const Menu = (props) => {
             <GenresContainer>
               <div>
                 {!movieisLoading &&
-                  movieGenres.data.genres.map((genre) => (
-                    <a href={`/upo/genre/${genre.id}`}>{genre.name}</a>
+                  movieGenres.data.genres.map((genre,index) => (
+                    <a href={`/upo/genre/${genre.id}`} key={index}>{genre.name}</a>
                   ))}
               </div>
             </GenresContainer>
