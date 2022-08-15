@@ -130,10 +130,10 @@ const Menu = (props) => {
             <a href="/">Home</a>
           </li>
           <li>
-            <a href="/">Movies</a>
+            <a href="/upo/movie/list">Movies</a>
           </li>
           <li>
-            <a href="/">Series and tv shows</a>
+            <a href="/upo/tv/list">Series and tv shows</a>
           </li>
           <li>
             Genres
@@ -141,7 +141,7 @@ const Menu = (props) => {
               <div>
                 {!movieisLoading &&
                   movieGenres.data.genres.map((genre,index) => (
-                    <a href={`/upo/genre/${genre.id}`} key={index}>{genre.name}</a>
+                    <a href={`/upo/genre/${genre.id}-${genre.name}`} key={index}>{genre.name}</a>
                   ))}
               </div>
             </GenresContainer>

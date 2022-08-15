@@ -4,7 +4,8 @@ import Home from "../pages/Home.page";
 import Nav from "./Nav";
 import Details from "../pages/Details.page";
 import YoutubeIframe from "./details-components/YoutubeIframe";
-import WithGenreList from '../pages/WithGenreList'
+import WithGenreList from "../pages/WithGenreList";
+import InList from "../pages/InList.page";
 
 const Router = () => {
   const [inputVisible, setInputVisible] = useState(false);
@@ -22,19 +23,24 @@ const Router = () => {
           }
         />
         <Route
-        path="upo/genre/:genre"
+          path="upo/genre/:genre-:genrename"
           exat
           element={<WithGenreList mediaType="movie" />}
-        />
-        <Route
-        path="upo/genre/:genre"
-          exat
-          element={<WithGenreList mediaType="tv" />}
         />
         <Route
           path="upo/movie/:id"
           exat
           element={<Details mediaType="movie" />}
+        />
+        <Route
+          path="upo/movie/list"
+          exat
+          element={<InList mediaType="movie" type="movies"/>}
+        />
+        <Route
+          path="upo/tv/list"
+          exat
+          element={<InList mediaType='tv' type="series and tv shows" />}
         />
         <Route
           path="upo/movie/:id/:key"

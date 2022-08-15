@@ -23,7 +23,7 @@ align-items:center;
 
     .general-body-container {
       display: flex;
-      min-height:500px;
+      min-height:600px;
       max-height:auto;
 
     }

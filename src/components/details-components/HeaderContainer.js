@@ -31,14 +31,14 @@ const HeaderContainer = styled.div`
 
   @media (min-width: 800px) {
   flex-grow:1;
-  width:auto;
+  width:500px;
   padding:0 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
     & img {
-      width: 200px;
+      width: 280px;
     }
   }
 `;

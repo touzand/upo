@@ -56,6 +56,7 @@ const BodyDiv = styled.div`
 
   .overview-desktop{
   display:none;
+  padding:4vw;
   }
 
   @media (min-width: 800px) {
@@ -102,7 +103,7 @@ height:100%;
     }
 
     div{
-    width:250px;
+    width:20vw;
 
     }
 
