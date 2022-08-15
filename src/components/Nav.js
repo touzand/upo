@@ -13,6 +13,7 @@ const NavContainer = styled.nav`
   color: white;
   background-color: var(--dark);
   position: relative;
+  margin:0 2rem;
 
   .nav-icon {
     font-size: 1.5rem;

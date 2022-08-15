@@ -2,7 +2,7 @@ import styled, { keyframes } from "styled-components";
 import "../index.css";
 import useAxios from "../hooks/useAxios";
 import { API_KEY } from "../services/api.js";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 const MenuSlide = keyframes`
 0%{left:100%}
@@ -14,12 +14,12 @@ const GenresContainer = styled.div`
   height: 230px;
   top: 34px;
   border-radius: 1rem;
-  left: 4rem;
+  left: 70%;
 
   a {
     display: inline-block;
     padding: 0.5rem;
-    border-radius: 0.25rem;
+    border-radius: 0.10rem;
   }
 
   a:hover {
@@ -39,8 +39,7 @@ const MenuContainer = styled.div`
   top: 60px;
   width: 100%;
   height: 100vh;
-  animation:${MenuSlide} 1s ease both;
-
+  animation: ${MenuSlide} 1s ease both;
 
   li {
     text-align: center;
@@ -74,18 +73,18 @@ const MenuContainer = styled.div`
   }
 
   @media (min-width: 800px) {
-  height:initial;
+    height: initial;
     top: 1rem;
     display: flex;
     background-color: transparent;
-  animation:initial;
+    animation: initial;
 
     div {
       top: -1rem;
       position: absolute;
 
       div {
-        top: 3rem;
+        top: 3.5rem;
         display: none;
         align-items: center;
         justify-content: center;
@@ -140,14 +139,16 @@ const Menu = (props) => {
             <GenresContainer>
               <div>
                 {!movieisLoading &&
-                  movieGenres.data.genres.map((genre,index) => (
-                    <a href={`/upo/genre/${genre.id}-${genre.name}`} key={index}>{genre.name}</a>
+                  movieGenres.data.genres.map((genre, index) => (
+                    <a
+                      href={`/upo/genre/${genre.id}-${genre.name}`}
+                      key={index}
+                    >
+                      {genre.name}
+                    </a>
                   ))}
               </div>
             </GenresContainer>
-          </li>
-          <li>
-            <a href="/">Information</a>
           </li>
         </ul>
       </div>

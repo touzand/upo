@@ -17,10 +17,9 @@ const GeneralContainer = styled.div`
   }
 
   @media (min-width: 800px) {
-
-.margin{
-margin:0 11vw ;
-}
+    .margin {
+      margin: 0 11vw;
+    }
 
     div:nth-child(2) {
       padding-top: 2rem;
@@ -86,8 +85,8 @@ const GenreItem = styled.div`
     position: relative;
     transition: transform 0.1s ease-in-out;
 
-    img{
-    height:200px
+    img {
+      height: 200px;
     }
 
     div {
@@ -128,7 +127,7 @@ const WithGenreList = (props) => {
         </Header>
       )}
 
-      <div className='margin'>
+      <div className="margin">
         {isLoading ? (
           <Loader />
         ) : (

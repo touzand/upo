@@ -7,12 +7,24 @@ import { Link } from "react-router-dom";
 const GeneralContainer = styled.div`
   color: white;
 
+
+
+  div:nth-child(2) {
+    margin:initial;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (min-width:800px){
   div:nth-child(2) {
     margin:0 11vw;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 1rem;
+  }
   }
 `;
 const Header = styled.div`
@@ -49,7 +61,7 @@ transition:transform .1s ease-in-out;
 
 
   img {
-    width: 150px;
+    width: 200px;
     height: auto;
     border-radius: 0.25rem;
   }
