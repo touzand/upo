@@ -41,6 +41,13 @@ const MenuContainer = styled.div`
   height: 100vh;
   animation: ${MenuSlide} 1s ease both;
 
+  button{
+  border:none;
+  background-color:transparent;
+  outline:none;
+  font-size:1rem;
+  }
+
   li {
     text-align: center;
   }
@@ -121,6 +128,10 @@ const Menu = (props) => {
     method: "get",
   });
 
+  const ChangingTheme = ( ) => {
+   document.body.classList.toggle("dark")
+  }
+
   return (
     <MenuContainer>
       <div>
@@ -149,6 +160,9 @@ const Menu = (props) => {
                   ))}
               </div>
             </GenresContainer>
+          </li>
+          <li>
+            <button onClick={ChangingTheme}>Change theme</button>
           </li>
         </ul>
       </div>

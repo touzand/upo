@@ -7,12 +7,28 @@ const DetailContainer = styled.div`
   overflow-y:hidden;
 
   article {
+  margin-top:1rem;
     span {
       border: thin solid;
       padding: 0.25rem 0.5rem;
       margin: 0.1rem;
       border-radius: 1rem;
     }
+  }
+
+  .indic{
+  margin-top:1rem;
+  font-weight:bold;
+  margin-bottom:0;
+  }
+
+  .not-found{
+  padding:.5rem;
+  background-color:#dc3545;
+  font-weight:bold;
+  color:#151515;
+  border-radius:.25rem;
+  margin-top:.5rem;
   }
 
   @media (min-width: 800px) {

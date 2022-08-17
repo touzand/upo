@@ -19,6 +19,8 @@ const NavContainer = styled.nav`
     font-size: 1.5rem;
     padding: 0.5rem;
     cursor: pointer;
+
+    input{display:none;}
   }
 
   a {
@@ -34,6 +36,28 @@ const NavContainer = styled.nav`
 
   @media (min-width: 800px) {
     justify-content: space-between;
+
+    .nav-icon{
+    display:flex;
+    padding:.25rem;
+    gap:.5rem;
+    border-radius:.5rem;
+    color:var(--dark-70);
+
+    input{
+    display:initial;
+    border:none;
+    background-color:var(--dark-70);
+    border-radius:.25rem 0 0 .25rem;
+    padding-left:.5rem;
+    outline:none;
+
+    ::placeholder{
+    color:var(--dark-80)
+    }
+    }
+
+    }
 
     .movile-navigation {
       display: none;
@@ -67,6 +91,7 @@ const Nav = (props) => {
         <Menu />
       </div>
       <div onClick={() => props.setInputVisible(true)} className="nav-icon">
+        <input type='text' placeholder="Search . . ."/>
         <i className="bi bi-search"></i>
       </div>
       {props.inputVisible && (

@@ -1,20 +1,24 @@
 :root {
-  --primal-color: #007acc;
-  --dark-70: #3e3e42;
-  --dark-80: #2d2d30;
-  --dark-90: #252526;
-  --dark: #0e0e0e;
 }
 
 html {
   font-size: 16px;
   font-family: "Roboto", sans-serif;
   box-sizing: border-box;
-  background-color: var(--dark);
 }
 
 body {
   margin: 0;
+  --primal-color: #007acc;
+  --dark-70: #3e3e42;
+  --dark-80: #2d2d30;
+  --dark-90: #252526;
+  --dark: #0e0e0e;
+  background-color: var(--dark);
+}
+
+body *{
+  transition:all .4s ease-in;
 }
 
 @media screen and (min-width: 800px) {
@@ -114,3 +118,49 @@ a {
     transform: rotate(360deg);
   }
 }
+
+.dark{
+  --primal-color: #007acc;
+  --dark-70: #0007;
+  --dark-80: #0008;
+  --dark-90: #0009;
+  --dark: #ddd;
+
+}
+
+.dark *{
+  color:#151515;
+}
+
+.dark .movile-navigation *{
+  color:#151515;
+  background-color:whitesmoke;
+
+}
+
+.dark .nav-icon{
+  color:#151515;
+}
+
+.dark .general-body-container article *{
+  color:#151515;
+  border-color:inherit;
+}
+
+.dark .providers-container *{
+  color:whitesmoke;
+}
+
+  .dark .cristal * {
+    color:whitesmoke;
+  }
+
+  .dark .bg input, .dark .bg i:nth-child(1){
+    color:whitesmoke;
+  }
+
+  .dark .bg .query *,.dark .bg .query i{
+    color:#151515;
+  }
+
+

@@ -52,6 +52,7 @@ const BodyDiv = styled.div`
     padding: 1rem;
     margin: 1rem 0;
     background-color: #0009;
+
   }
 
   .overview-desktop{

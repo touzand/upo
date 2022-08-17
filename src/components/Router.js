@@ -6,9 +6,16 @@ import Details from "../pages/Details.page";
 import YoutubeIframe from "./details-components/YoutubeIframe";
 import WithGenreList from "../pages/WithGenreList";
 import InList from "../pages/InList.page";
+import {useStickyState} from '../hooks/useStickyState'
 
 const Router = () => {
   const [inputVisible, setInputVisible] = useState(false);
+
+  const [theme,setTheme] = useStickyState(localStorage.getItem('theme') ? localStorage.getItem('theme') : localStorage.setItem('theme','light') )
+
+  document.body.classList.add(theme)
+
+
   return (
     <BrowserRouter>
       <Nav inputVisible={inputVisible} setInputVisible={setInputVisible} />

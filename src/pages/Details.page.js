@@ -74,11 +74,12 @@ const Details = ({ mediaType, children }) => {
                 )}
               </div>
               <div className="body-desktop-version">
+                <span className='indic'>Genres</span>
                 <article>
                   {media.genres.map((genre, index) => (
                     <span key={genre.id}>{genre.name}</span>
                   ))}
-                </article>
+                  </article>
                 <div className="cristal overview-mobile">
                   {media.tagline && (
                     <blockquote className="tagname">
@@ -95,6 +96,7 @@ const Details = ({ mediaType, children }) => {
                     </div>
                   )}
                 </div>
+                <span className='indic'>Providers</span>
                 {!isErrorProviders && !isLoadingProviders && (
                   <div className="providers-container">
                     {Object.entries(responseProviders.data.results).map(
@@ -107,7 +109,7 @@ const Details = ({ mediaType, children }) => {
                       }
                     )}
 
-                    {providers &&
+                    {providers ?
                       Object.entries(providers).map((provider, index) => {
                         if (provider[0] !== "link" && provider[0] !== "buy") {
                           return (
@@ -121,15 +123,15 @@ const Details = ({ mediaType, children }) => {
                         } else {
                           return;
                         }
-                      })}
+                      }) : <span className='not-found'>not found</span>}
                   </div>
                 )}
-                {media.homepage && (
+                  {media.homepage ? (
                   <p className="homepage-link">
                     You can Visit the homepage{" "}
                     <a href={`${media.homepage}`}>here</a>
                   </p>
-                )}{" "}
+                ) : <span className='not-found'>Sorry. homepage not found</span>}{" "}
               </div>
             </Body>
           </div>

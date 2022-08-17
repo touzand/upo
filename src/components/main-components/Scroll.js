@@ -25,6 +25,11 @@ const ScrollContainer = styled.div`
   }
 
   .controls {
+  display:none;
+  }
+
+  @media (min-width: 800px) {
+  .controls{
     display: flex;
     justify-content: space-between;
     position: absolute;
@@ -64,8 +69,6 @@ const ScrollContainer = styled.div`
       font-size:3rem;
     }
   }
-
-  @media (min-width: 800px) {
   }
 `;
 
@@ -79,16 +82,6 @@ const Scroll = (props) => {
 
   const scroll = (scrollOffset) => {
     rowRef.current.scrollLeft += scrollOffset;
-  };
-
-  const sliderLeft = () => {
-    let slider = document.querySelector(".slider");
-    slider.scrollLeft = slider.scrollLeft - 500;
-  };
-
-  const sliderRight = () => {
-    let slider = document.querySelector(".slider");
-    slider.scrollRight = slider.scrollRight - 500;
   };
 
   let animationDelayStartAt = 0;
