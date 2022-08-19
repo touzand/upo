@@ -14,7 +14,7 @@ const GenresContainer = styled.div`
   height: 230px;
   top: 34px;
   border-radius: 1rem;
-  left: 70%;
+  left: 40%;
 
   a {
     display: inline-block;
@@ -41,11 +41,18 @@ const MenuContainer = styled.div`
   height: 100vh;
   animation: ${MenuSlide} 1s ease both;
 
+  span:nth-child(1){
+  cursor:pointer;
+
+  }
+
   button{
+  cursor:pointer;
   border:none;
   background-color:transparent;
   outline:none;
   font-size:1rem;
+  color:white;
   }
 
   li {
@@ -129,7 +136,16 @@ const Menu = (props) => {
   });
 
   const ChangingTheme = ( ) => {
-   document.body.classList.toggle("dark")
+
+    if(localStorage.getItem('theme') === 'dark'){
+    localStorage.setItem('theme','light')
+   document.body.classList.toggle('dark')
+    }else{
+    localStorage.setItem('theme','dark')
+   document.body.classList.toggle('dark')
+    }
+
+
   }
 
   return (
@@ -146,7 +162,7 @@ const Menu = (props) => {
             <a href="/upo/tv/list">Series and tv shows</a>
           </li>
           <li>
-            Genres
+            <span>Genres</span>
             <GenresContainer>
               <div>
                 {!movieisLoading &&

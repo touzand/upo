@@ -7,7 +7,7 @@ import "../index.css";
 
 const HeaderContainer = styled.header`
   text-align: left;
-  background-image:linear-gradient(to top,var(--dark),#2228),url( ${(props) =>
+  background-image:linear-gradient(to top,#151515,#2228),url( ${(props) =>
     props.api}${(props) => props.backgroundPath} );
   color:white;
   font-weight:bold;
@@ -47,7 +47,7 @@ const HeaderContainer = styled.header`
   }
 
   @media (min-width:800px){
-  background-image:linear-gradient(to right,var(--dark),#2228),url( ${(props) =>
+  background-image:linear-gradient(to right,#151515,#2228),url( ${(props) =>
     props.api}${(props) => props.backgroundPath} );
 
   h1{

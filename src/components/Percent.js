@@ -8,6 +8,6 @@ const PercentContainer = styled.span`
 `;
 
 const Percent = ({ children }) => (
-  <PercentContainer>{formatAsPercent(children)}</PercentContainer>
+  <PercentContainer className="percent">{formatAsPercent(children)}</PercentContainer>
 );
 export default Percent;

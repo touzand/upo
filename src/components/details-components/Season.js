@@ -3,9 +3,8 @@ import styled from 'styled-components'
 const SeasonContainer = styled.div`
 margin:1rem;
 padding:1rem;
--webkit-box-shadow: 0px 0px 22px -7px #000000; 
-box-shadow: 0px 0px 20px -7px #000000;
 border-radius:.5rem;
+border:thin solid grey;
 
 `
 

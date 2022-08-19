@@ -13,14 +13,27 @@ const NavContainer = styled.nav`
   color: white;
   background-color: var(--dark);
   position: relative;
-  margin:0 2rem;
 
   .nav-icon {
     font-size: 1.5rem;
-    padding: 0.5rem;
     cursor: pointer;
+    background-color:transparent;
 
     input{display:none;}
+
+    i{
+    background-color:transparent;
+
+    }
+    
+  }
+
+  .nav-icon:nth-child(1){
+  padding-left:2rem;
+  }
+
+  .nav-icon:nth-child(4){
+  padding-right:2rem;
   }
 
   a {
@@ -29,6 +42,8 @@ const NavContainer = styled.nav`
     align-items: center;
     justify-content: center;
   }
+
+
 
   .desktop-navigation {
     display: none;
@@ -92,7 +107,7 @@ const Nav = (props) => {
       </div>
       <div onClick={() => props.setInputVisible(true)} className="nav-icon">
         <input type='text' placeholder="Search . . ."/>
-        <i className="bi bi-search"></i>
+        <i className="bi bi-search nav-icon"></i>
       </div>
       {props.inputVisible && (
         <SearchBar

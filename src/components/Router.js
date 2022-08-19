@@ -11,9 +11,7 @@ import {useStickyState} from '../hooks/useStickyState'
 const Router = () => {
   const [inputVisible, setInputVisible] = useState(false);
 
-  const [theme,setTheme] = useStickyState(localStorage.getItem('theme') ? localStorage.getItem('theme') : localStorage.setItem('theme','light') )
-
-  document.body.classList.add(theme)
+  document.body.classList.add(localStorage.getItem('theme'))
 
 
   return (

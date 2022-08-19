@@ -18,7 +18,7 @@ body {
 }
 
 body *{
-  transition:all .4s ease-in;
+  transition:all .2s ease-in;
 }
 
 @media screen and (min-width: 800px) {
@@ -142,11 +142,6 @@ a {
   color:#151515;
 }
 
-.dark .general-body-container article *{
-  color:#151515;
-  border-color:inherit;
-}
-
 .dark .providers-container *{
   color:whitesmoke;
 }
@@ -162,5 +157,71 @@ a {
   .dark .bg .query *,.dark .bg .query i{
     color:#151515;
   }
+
+  .dark .percent {
+    color:#151515 !important;
+  }
+
+  .dark nav ul *{
+    color:#151515;
+  }
+
+  .dark nav ul li:hover *{
+    background-color:var(--primal-color) !important;
+  }
+
+  .dark nav ul *:hover{
+    color:whitesmoke;
+    background-color:var(--primal-color) !important;
+  }
+
+  .dark nav ul li div div *:hover{
+    background-color:whitesmoke !important;
+  }
+  
+  .dark nav button {
+    color:#151515;
+  }
+
+  .dark .bg-information div *{
+    color:#ddd9;
+  }
+
+  .dark .body-desktop-version *{
+    color:whitesmoke;
+  }
+
+  .dark .body-desktop-version article *{
+    color:whitesmoke;
+  }
+
+  .dark nav li div a{
+    color:whitesmoke;
+  }
+
+  .dark nav li div a:hover{
+    color:#151515;
+  }
+
+  .dark .margin a div:nth-child(1){
+  background-color:#0005;
+  }
+  
+  .dark .with-genre-hero h2:nth-child(1){
+  color:#0004;
+  }
+
+  .dark .inlist-header h2:nth-child(1){
+  color:#0004;
+  }
+
+  .dark h1{
+    color:whitesmoke;
+  }
+
+  .dark .content-loader-text{
+    color:#151515 !important;
+  }
+
 
 

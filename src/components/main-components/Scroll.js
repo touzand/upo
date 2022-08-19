@@ -35,12 +35,12 @@ const ScrollContainer = styled.div`
     position: absolute;
     width: 100%;
     height: 72%;
-    z-index: 2;
+    z-index: 1;
     pointer-events:none;
 
     div{
     opacity:1;
-    width:80px;
+    width:60px;
     cursor:pointer;
     transition:all .1s ease-in;
     display:flex;
@@ -49,6 +49,7 @@ const ScrollContainer = styled.div`
     font-size:2rem;
     pointer-events:auto;
     cursor:pointer;
+    transition:background-image .2s ease-in-out;
     }
 
     div:nth-child(1) {
@@ -92,8 +93,8 @@ const Scroll = (props) => {
       <ScrollContainer className="scroll-container">
         <div className="slider" ref={rowRef}>
           <div className="controls">
-            <div onClick={() => scroll(-300)}><i class="bi bi-arrow-left-short"></i></div>
-            <div onClick={() => scroll(300)}><i class="bi bi-arrow-right-short"></i></div>
+            <div onClick={() => scroll(-300)}><i className="bi bi-arrow-left-short"></i></div>
+            <div onClick={() => scroll(300)}><i className="bi bi-arrow-right-short"></i></div>
           </div>
           {isLoading ? (
             <Loader />

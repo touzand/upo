@@ -33,6 +33,10 @@ const Header = styled.div`
   with: 100%;
   color: white;
 
+  .inlist-header{
+  margin-bottom:2rem;
+  }
+
   div:nth-child(1) {
     backdrop-filter: blur(1rem);
     height: 200px;
@@ -61,7 +65,7 @@ transition:transform .1s ease-in-out;
 
 
   img {
-    width: 200px;
+    width: 170px;
     height: auto;
     border-radius: 0.25rem;
   }
@@ -89,8 +93,8 @@ const InList = (props) => {
         <Header
           backgroundPath={response.data.results[randomMediaIndex].backdrop_path}
         >
-          <div>
-            <h2>Mos pupular</h2>
+          <div className='inlist-header'>
+            <h2>Most pupular</h2>
             <h1>
               {props.type[0].toUpperCase()}
               {props.type.substring(1)}
@@ -104,7 +108,7 @@ const InList = (props) => {
           <Loader />
         ) : (
           response.data.results.map((media, index) => (
-            <Link to={`/upo/${props.mediaType}/${media.id}`}>
+            <Link to={`/upo/${props.mediaType}/${media.id}`} key={index}>
               <InListItem>
                 <img src={`${api.POSTER}${media.poster_path}`} />
                 <div>

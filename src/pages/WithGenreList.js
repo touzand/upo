@@ -119,7 +119,7 @@ const WithGenreList = (props) => {
         <Header
           backgroundPath={response.data.results[randomMediaIndex].backdrop_path}
         >
-          <div>
+          <div className="with-genre-hero">
             <h2>Movies with the genre</h2>
             <h1>{genrename}</h1>
             <span>{genre}</span>
