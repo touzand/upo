@@ -11,7 +11,7 @@ const MenuSlide = keyframes`
 
 const GenresContainer = styled.div`
   background-color: var(--primal-color);
-  height: 230px;
+  height: 250px;
   top: 34px;
   border-radius: 1rem;
   left: 40%;
@@ -135,7 +135,7 @@ const Menu = (props) => {
     method: "get",
   });
 
-  const ChangingTheme = ( ) => {
+  const ChangingTheme = e => {
 
     if(localStorage.getItem('theme') === 'dark'){
     localStorage.setItem('theme','light')
@@ -145,6 +145,8 @@ const Menu = (props) => {
    document.body.classList.toggle('dark')
     }
 
+    document.querySelectorAll('.change-theme i')[1].classList.toggle('none')
+    document.querySelectorAll('.change-theme i')[0].classList.toggle('none')
 
   }
 
@@ -175,10 +177,10 @@ const Menu = (props) => {
                     </a>
                   ))}
               </div>
-            </GenresContainer>
+           </GenresContainer>
           </li>
           <li>
-            <button onClick={ChangingTheme}>Change theme</button>
+            <button onClick={ChangingTheme} className='change-theme'><i className="bi bi-sun-fill"></i><i className="bi bi-moon-fill none"></i></button>
           </li>
         </ul>
       </div>

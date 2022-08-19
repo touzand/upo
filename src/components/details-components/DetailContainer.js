@@ -28,7 +28,8 @@ const DetailContainer = styled.div`
   font-weight:bold;
   color:#151515;
   border-radius:.25rem;
-  margin-top:.5rem;
+  margin-top:1rem;
+  display:inline-block;
   }
 
   @media (min-width: 800px) {

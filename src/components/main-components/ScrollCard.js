@@ -70,7 +70,8 @@ mix-blend-mode:luminosity;
   span{
   color:var(--dark) !important;
   font-weight:bold;
-background-image:linear-gradient(to right,#f3ce13,var(--dark)) !important;
+  padding-left:.5rem;
+background-image:linear-gradient(to right,#f3ce13,#f3ce13) !important;
 
       }
     }

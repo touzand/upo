@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 const SeasonContainer = styled.div`
-margin:1rem;
+margin:.5rem;
 padding:1rem;
-border-radius:.5rem;
+border-radius:.25rem;
 border:thin solid grey;
 
 `

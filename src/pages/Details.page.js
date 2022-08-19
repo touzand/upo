@@ -170,11 +170,13 @@ const Details = ({ mediaType, children }) => {
               </>
             )}
 
-            {/*
-              {!isLoadingReviews && (
-                <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props}/>)}</Reviews>
+              {!isLoadingReviews && responseReviews.data.results.length !== 0 && (
+                <div>
+
+                <h3 style={{ marginLeft: "1rem" }}>Reviews</h3>
+                <Reviews>{responseReviews.data.results.map(( props,index )=><ReviewsCard props={props} key={index}/>)}</Reviews>
+                </div>
                 )}
-                */}
 
             <hr />
 

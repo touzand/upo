@@ -154,6 +154,10 @@ a {
     color:whitesmoke;
   }
 
+  .dark .bg  .input-top-container{
+    background-color:#0004;
+  }
+
   .dark .bg .query *,.dark .bg .query i{
     color:#151515;
   }
@@ -215,12 +219,28 @@ a {
   color:#0004;
   }
 
+  .dark .general-body-container h2{
+    color:whitesmoke !important;
+  }
+
   .dark h1{
     color:whitesmoke;
   }
 
   .dark .content-loader-text{
     color:#151515 !important;
+  }
+
+  .none{
+    display:none;
+  }
+
+  .dark .nav-icon input{
+    background-color:#0003 !important;
+  }
+
+  .expand{
+    height: 100% !important;
   }
 
 
