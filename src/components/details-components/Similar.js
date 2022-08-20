@@ -1,22 +1,21 @@
 import styled from "styled-components";
 import { API_KEY, api } from "../../services/api";
 import useAxios from "../../hooks/useAxios";
-import Scroll from "../details-components/ScrollContainer";
-import { Link } from "react-router-dom";
 import Percent from "../Percent";
-import '../../index.css'
+import "../../index.css";
 
 const Container = styled.div`
-  background-image:linear-gradient(to bottom,#0009,var(--dark)),url( ${props => props.api}${props=>props.backgroundPath} );
-  background-position:center;
-  background-size:cover;
-  padding-top:.5rem;
+  background-image: linear-gradient(to bottom, #0009, var(--dark)),
+    url(${(props) => props.api}${(props) => props.backgroundPath});
+  background-position: center;
+  background-size: cover;
+  padding-top: 0.5rem;
 
-  h3{
-  color:white;
-  margin:1rem;
+  h3 {
+    color: white;
+    margin: 1rem;
   }
-`
+`;
 
 const SimilarScroll = styled.div`
   width: 100vw;
@@ -25,7 +24,7 @@ const SimilarScroll = styled.div`
   overflow-x: scroll;
   padding-bottom: 3rem;
   padding-right: 1rem;
-  color:white;
+  color: white;
 `;
 
 const RecomendationContainer = styled.div`
@@ -55,7 +54,14 @@ const Similar = (props) => {
   return (
     <div>
       {!isLoading && response.data.results.length !== 0 && (
-        <Container api={api.POSTER} backgroundPath={response.data.results[ Math.floor(Math.random() * response.data.results.length) ].backdrop_path}>
+        <Container
+          api={api.POSTER}
+          backgroundPath={
+            response.data.results[
+              Math.floor(Math.random() * response.data.results.length)
+            ].backdrop_path
+          }
+        >
           <h3 style={{ paddingLeft: "1rem" }}>Similar</h3>
           <SimilarScroll>
             {!isLoading &&

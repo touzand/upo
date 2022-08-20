@@ -126,7 +126,6 @@ const WithGenreList = (props) => {
           </div>
         </Header>
       )}
-
       <div className="margin">
         {isLoading ? (
           <Loader />

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { API_ENDPOINT } from "../services/api.js";
 import axios from "axios";
 import { useEffectOnce } from "./useEffectOnce.js";

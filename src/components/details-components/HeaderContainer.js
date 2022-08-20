@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Percent from "../Percent";
 import "../../index.css";
 
 const HeaderContainer = styled.div`
@@ -30,9 +31,9 @@ const HeaderContainer = styled.div`
   }
 
   @media (min-width: 800px) {
-  flex-grow:1;
-  width:500px;
-  padding:0 2rem;
+    flex-grow: 1;
+    width: 500px;
+    padding: 0 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -43,9 +44,14 @@ const HeaderContainer = styled.div`
   }
 `;
 
-const Header = ({ children, backDrop, api }) => (
-  <HeaderContainer backDrop={backDrop} api={api}>
-    {children}
+const Header = (props) => (
+  <HeaderContainer backDrop={props.media.backdrop_path} api={props.api.BACKDROP_PATH}>
+    <img src={`${props.api.POSTER}${props.media.poster_path}`} />
+    <div>
+      <h2>{props.media.title || props.media.name}</h2>
+      <span>{props.media.release_date || props.media.first_air_date}</span>
+      <Percent>{props.media.vote_average}</Percent>
+    </div>
   </HeaderContainer>
 );
 export default Header;
