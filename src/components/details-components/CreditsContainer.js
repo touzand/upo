@@ -1,11 +1,10 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const CreditsContainer = styled.div`
-padding:1rem;
+  padding: 1rem;
+`;
 
-`
-
-const Credits = ({children}) =>{
-  <CreditsContainer>{children}</CreditsContainer>
-}
-export default Credits
+const Credits = ({ children }) => {
+  <CreditsContainer>{children}</CreditsContainer>;
+};
+export default Credits;

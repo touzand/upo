@@ -3,7 +3,7 @@ import useAxios from "../../hooks/useAxios";
 import Loader from "../Loader";
 import ScrollCard from "./ScrollCard";
 import { useRef } from "react";
-import '../../index.css'
+import "../../index.css";
 
 const GeneralContainer = styled.div`
   @media (min-width: 800px) {
@@ -25,51 +25,51 @@ const ScrollContainer = styled.div`
   }
 
   .controls {
-  display:none;
+    display: none;
   }
 
   @media (min-width: 800px) {
-  .controls{
-    display: flex;
-    justify-content: space-between;
-    position: absolute;
-    width: 100%;
-    height: 72%;
-    z-index: 1;
-    pointer-events:none;
+    .controls {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      width: 100%;
+      height: 72%;
+      z-index: 1;
+      pointer-events: none;
 
-    div{
-    opacity:1;
-    width:60px;
-    cursor:pointer;
-    transition:all .1s ease-in;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:2rem;
-    pointer-events:auto;
-    cursor:pointer;
-    transition:background-image .2s ease-in-out;
-    }
+      div {
+        opacity: 1;
+        width: 60px;
+        cursor: pointer;
+        transition: all 0.1s ease-in;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        pointer-events: auto;
+        cursor: pointer;
+        transition: background-image 0.2s ease-in-out;
+      }
 
-    div:nth-child(1) {
-      background-image: linear-gradient(to right, var(--dark), transparent);
-    }
+      div:nth-child(1) {
+        background-image: linear-gradient(to right, var(--dark), transparent);
+      }
 
-    div:nth-child(2) {
-      background-image: linear-gradient(to left, var(--dark), transparent);
-    }
+      div:nth-child(2) {
+        background-image: linear-gradient(to left, var(--dark), transparent);
+      }
 
-    div:nth-child(1):hover {
-      background-image: linear-gradient(to right, var(--dark), transparent);
-      font-size:3rem;
-    }
+      div:nth-child(1):hover {
+        background-image: linear-gradient(to right, var(--dark), transparent);
+        font-size: 3rem;
+      }
 
-    div:nth-child(2):hover {
-      background-image: linear-gradient(to left, var(--dark), transparent);
-      font-size:3rem;
+      div:nth-child(2):hover {
+        background-image: linear-gradient(to left, var(--dark), transparent);
+        font-size: 3rem;
+      }
     }
-  }
   }
 `;
 
@@ -93,8 +93,12 @@ const Scroll = (props) => {
       <ScrollContainer className="scroll-container">
         <div className="slider" ref={rowRef}>
           <div className="controls">
-            <div onClick={() => scroll(-300)}><i className="bi bi-arrow-left-short"></i></div>
-            <div onClick={() => scroll(300)}><i className="bi bi-arrow-right-short"></i></div>
+            <div onClick={() => scroll(-300)}>
+              <i className="bi bi-arrow-left-short"></i>
+            </div>
+            <div onClick={() => scroll(300)}>
+              <i className="bi bi-arrow-right-short"></i>
+            </div>
           </div>
           {isLoading ? (
             <Loader />

@@ -7,24 +7,22 @@ import { Link } from "react-router-dom";
 const GeneralContainer = styled.div`
   color: white;
 
-
-
   div:nth-child(2) {
-    margin:initial;
+    margin: initial;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
     gap: 1rem;
   }
 
-  @media (min-width:800px){
-  div:nth-child(2) {
-    margin:0 11vw;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    gap: 1rem;
-  }
+  @media (min-width: 800px) {
+    div:nth-child(2) {
+      margin: 0 11vw;
+      display: flex;
+      justify-content: space-evenly;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
   }
 `;
 const Header = styled.div`
@@ -33,8 +31,8 @@ const Header = styled.div`
   with: 100%;
   color: white;
 
-  .inlist-header{
-  margin-bottom:2rem;
+  .inlist-header {
+    margin-bottom: 2rem;
   }
 
   div:nth-child(1) {
@@ -61,8 +59,7 @@ const Header = styled.div`
 `;
 
 const InListItem = styled.div`
-transition:transform .1s ease-in-out;
-
+  transition: transform 0.1s ease-in-out;
 
   img {
     width: 170px;
@@ -74,9 +71,9 @@ transition:transform .1s ease-in-out;
     display: none;
   }
 
-  &:hover{
-  transform:scale(1.2);
-  z-index:2;
+  &:hover {
+    transform: scale(1.2);
+    z-index: 2;
   }
 `;
 
@@ -93,7 +90,7 @@ const InList = (props) => {
         <Header
           backgroundPath={response.data.results[randomMediaIndex].backdrop_path}
         >
-          <div className='inlist-header'>
+          <div className="inlist-header">
             <h2>Most pupular</h2>
             <h1>
               {props.type[0].toUpperCase()}

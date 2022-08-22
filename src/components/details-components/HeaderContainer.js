@@ -4,13 +4,17 @@ import "../../index.css";
 
 const HeaderContainer = styled.div`
   width: 100%;
-  background-image: linear-gradient(to right, black 0% 30%, #2229),
-    url(${(props) => props.api}${(props) => props.backDrop});
+  background-image: linear-gradient(to left,transparent,black 80%),url(${(props) => props.api}${(props) => props.backDrop});
   background-position: center center;
   background-size: cover;
   background-repeat: norepeat;
   color: white;
   display: flex;
+  position:relative;
+
+  .bg-color{
+  display:none;
+  }
 
   img {
     width: 100px;
@@ -31,12 +35,28 @@ const HeaderContainer = styled.div`
   }
 
   @media (min-width: 800px) {
+  background-image:url(${(props) => props.api}${(props) => props.backDrop});
     flex-grow: 1;
     width: 500px;
     padding: 0 2rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+
+  .bg-color{
+  display:initial;
+  width:100%;
+  height:100%;
+  background-color:#151515;
+  position:absolute;
+  z-index:1;
+  mix-blend-mode:multiply;
+  }
+
+  *{
+  z-index:2;
+  
+  }
 
     & img {
       width: 280px;
@@ -45,7 +65,11 @@ const HeaderContainer = styled.div`
 `;
 
 const Header = (props) => (
-  <HeaderContainer backDrop={props.media.backdrop_path} api={props.api.BACKDROP_PATH}>
+  <HeaderContainer
+    backDrop={props.media.backdrop_path}
+    api={props.api.BACKDROP_PATH}
+>
+    <div className='bg-color'></div>
     <img src={`${props.api.POSTER}${props.media.poster_path}`} />
     <div>
       <h2>{props.media.title || props.media.name}</h2>

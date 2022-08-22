@@ -1,47 +1,47 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 const NetworkContainer = styled.div`
-background-color:#222;
-display:flex;
-padding:0 !important;
-border-radius:.5rem;
-overflow:hidden;
-margin-bottom:1rem;
+  background-color: #222;
+  display: flex;
+  padding: 0 !important;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  margin-bottom: 1rem;
 
-img{
-width:70px;
-}
+  img {
+    width: 70px;
+  }
 
-h4{
-}
+  h4 {
+  }
 
-div{
-display:flex;
-flex-direction:column;
-justify-content:center;
-padding:0 !important;
-margin-left:.5rem;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 !important;
+    margin-left: 0.5rem;
 
-p,h4{
-margin:0;
-}
+    p,
+    h4 {
+      margin: 0;
+    }
 
-p{
-font-size:.9rem;
-}
-}
+    p {
+      font-size: 0.9rem;
+    }
+  }
+`;
 
-`
-
-const Network = props =>(
+const Network = (props) => (
   <NetworkContainer>
-    <img src={`${props.api}${props.logo}`}/>
+    <img src={`${props.api}${props.logo}`} />
     <div>
       <div>
-      <p>Watch now in</p>
-      <h4>{props.name}</h4>
+        <p>Watch now in</p>
+        <h4>{props.name}</h4>
       </div>
     </div>
   </NetworkContainer>
-)
-export default Network
+);
+export default Network;

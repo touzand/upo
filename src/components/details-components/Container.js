@@ -16,6 +16,8 @@ const GeneralContainer = styled.div`
     }
   }
 
+
+
   .indic {
     margin-top: 1rem;
     font-weight: bold;
@@ -39,6 +41,7 @@ const GeneralContainer = styled.div`
     align-items: center;
 
     .general-body-container {
+    width:100vw;
       display: flex;
       min-height: 600px;
       max-height: auto;
