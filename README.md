@@ -23,3 +23,7 @@
 4. search by genre
 
 Please visit the site to know more about this - https://touzand.github.io/upo/
+
+## A little about the development process
+
+Upo is a web app built in React that consumes information from two APIs ([TMDB](https://www.themoviedb.org/) and [IMDB](https://www.imdb.com/)) and to make requests it uses [Axios.js](https://axios-http.com/docs/intro). for most of the final front-end we use [styled-components](https://styled-components.com/) (I like it because it already has SCSS syntax included in its system so using [styled-components](https://styled-components.com/) you can use css or use other syntaxes like Sass)
