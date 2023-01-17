@@ -22,7 +22,7 @@
 3. color theme change
 4. search by genre
 
-Please visit the site to know more about this - https://touzand.github.io/upo/
+Please visit the site to know more about this - [Upo](https://touzand.github.io/upo/) 
 
 ## A little about the development process
 
